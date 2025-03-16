@@ -79,9 +79,9 @@ namespace FormularioDeInicio
             modiAdmin.txtCiudad.Text = dtgvContenedorAdministradores[3, dtgvContenedorAdministradores.CurrentRow.Index].Value.ToString();
             modiAdmin.txtSucursal.Text = dtgvContenedorAdministradores[4, dtgvContenedorAdministradores.CurrentRow.Index].Value.ToString();
             modiAdmin.txtRegion.Text = dtgvContenedorAdministradores[5, dtgvContenedorAdministradores.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtPais.Text = dtgvContenedorAdministradores[6, dtgvContenedorAdministradores.CurrentRow.Index].Value.ToString();
+            modiAdmin.cboxPaisUsu.Text = dtgvContenedorAdministradores[6, dtgvContenedorAdministradores.CurrentRow.Index].Value.ToString();
             modiAdmin.txtTelefono.Text = dtgvContenedorAdministradores[7, dtgvContenedorAdministradores.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtCargo.Text = dtgvContenedorAdministradores[8, dtgvContenedorAdministradores.CurrentRow.Index].Value.ToString();
+            modiAdmin.cboxCargo.Text = dtgvContenedorAdministradores[8, dtgvContenedorAdministradores.CurrentRow.Index].Value.ToString();
             modiAdmin.txtUsuarioAdmin.Text = dtgvContenedorAdministradores[9, dtgvContenedorAdministradores.CurrentRow.Index].Value.ToString();
             modiAdmin.txtContraseñaAdmin.Text = dtgvContenedorAdministradores[10, dtgvContenedorAdministradores.CurrentRow.Index].Value.ToString();
             modiAdmin.txtID.Enabled = false; //puedo cambiar lo que sea, menos el código y por eso está en false
