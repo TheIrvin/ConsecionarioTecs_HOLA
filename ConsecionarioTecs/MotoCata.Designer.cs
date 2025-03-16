@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panelControl = new System.Windows.Forms.Panel();
-            this.lblModelo = new System.Windows.Forms.Label();
-            this.lblPrecio = new System.Windows.Forms.Label();
-            this.btnDifiere = new System.Windows.Forms.Button();
             this.btnComprar = new System.Windows.Forms.Button();
+            this.btnDifiere = new System.Windows.Forms.Button();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.lblModelo = new System.Windows.Forms.Label();
             this.ptbMotos = new System.Windows.Forms.PictureBox();
             this.panelControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMotos)).BeginInit();
@@ -53,17 +53,33 @@
             this.panelControl.TabIndex = 0;
             this.panelControl.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl_Paint);
             // 
-            // lblModelo
+            // btnComprar
             // 
-            this.lblModelo.AutoSize = true;
-            this.lblModelo.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModelo.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.lblModelo.Location = new System.Drawing.Point(193, 25);
-            this.lblModelo.MaximumSize = new System.Drawing.Size(300, 0);
-            this.lblModelo.Name = "lblModelo";
-            this.lblModelo.Size = new System.Drawing.Size(117, 19);
-            this.lblModelo.TabIndex = 0;
-            this.lblModelo.Text = "Modelo Moto";
+            this.btnComprar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnComprar.FlatAppearance.BorderSize = 3;
+            this.btnComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComprar.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.btnComprar.Location = new System.Drawing.Point(200, 215);
+            this.btnComprar.Name = "btnComprar";
+            this.btnComprar.Size = new System.Drawing.Size(142, 46);
+            this.btnComprar.TabIndex = 4;
+            this.btnComprar.Text = "Agendar Compra";
+            this.btnComprar.UseVisualStyleBackColor = true;
+            // 
+            // btnDifiere
+            // 
+            this.btnDifiere.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDifiere.FlatAppearance.BorderSize = 3;
+            this.btnDifiere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDifiere.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDifiere.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.btnDifiere.Location = new System.Drawing.Point(200, 157);
+            this.btnDifiere.Name = "btnDifiere";
+            this.btnDifiere.Size = new System.Drawing.Size(142, 44);
+            this.btnDifiere.TabIndex = 3;
+            this.btnDifiere.Text = "Agendar Credito";
+            this.btnDifiere.UseVisualStyleBackColor = true;
             // 
             // lblPrecio
             // 
@@ -76,33 +92,18 @@
             this.lblPrecio.TabIndex = 2;
             this.lblPrecio.Text = "9000$";
             // 
-            // btnDifiere
+            // lblModelo
             // 
-            this.btnDifiere.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnDifiere.FlatAppearance.BorderSize = 3;
-            this.btnDifiere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDifiere.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDifiere.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.btnDifiere.Location = new System.Drawing.Point(211, 164);
-            this.btnDifiere.Name = "btnDifiere";
-            this.btnDifiere.Size = new System.Drawing.Size(131, 35);
-            this.btnDifiere.TabIndex = 3;
-            this.btnDifiere.Text = "SOLICITAR CREDITO";
-            this.btnDifiere.UseVisualStyleBackColor = true;
-            // 
-            // btnComprar
-            // 
-            this.btnComprar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnComprar.FlatAppearance.BorderSize = 3;
-            this.btnComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnComprar.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.btnComprar.Location = new System.Drawing.Point(210, 216);
-            this.btnComprar.Name = "btnComprar";
-            this.btnComprar.Size = new System.Drawing.Size(131, 35);
-            this.btnComprar.TabIndex = 4;
-            this.btnComprar.Text = "COMPRAR";
-            this.btnComprar.UseVisualStyleBackColor = true;
+            this.lblModelo.AutoSize = true;
+            this.lblModelo.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelo.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lblModelo.Location = new System.Drawing.Point(193, 25);
+            this.lblModelo.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lblModelo.Name = "lblModelo";
+            this.lblModelo.Size = new System.Drawing.Size(117, 19);
+            this.lblModelo.TabIndex = 0;
+            this.lblModelo.Text = "Modelo Moto";
+            this.lblModelo.Click += new System.EventHandler(this.lblModelo_Click);
             // 
             // ptbMotos
             // 

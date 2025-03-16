@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administradores));
-            this.lblAdministradores = new System.Windows.Forms.Label();
+            this.lblUsuarios = new System.Windows.Forms.Label();
             this.panelAdmin = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelContenedorAdministradores = new System.Windows.Forms.Panel();
-            this.dtgvContenedorAdministradores = new System.Windows.Forms.DataGridView();
+            this.dtgvContenedorUsuarios = new System.Windows.Forms.DataGridView();
             this.tsAdministradores = new System.Windows.Forms.ToolStrip();
             this.ttlbFiltrarAdmin = new System.Windows.Forms.ToolStripLabel();
             this.tstxtFiltrarAdmin = new System.Windows.Forms.ToolStripTextBox();
@@ -53,26 +53,26 @@
             this.imlImagenes = new System.Windows.Forms.ImageList(this.components);
             this.panelAdmin.SuspendLayout();
             this.panelContenedorAdministradores.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvContenedorAdministradores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvContenedorUsuarios)).BeginInit();
             this.tsAdministradores.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblAdministradores
+            // lblUsuarios
             // 
-            this.lblAdministradores.AutoSize = true;
-            this.lblAdministradores.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdministradores.Location = new System.Drawing.Point(3, 6);
-            this.lblAdministradores.Name = "lblAdministradores";
-            this.lblAdministradores.Size = new System.Drawing.Size(238, 26);
-            this.lblAdministradores.TabIndex = 2;
-            this.lblAdministradores.Text = "ADMINISTRADORES";
-            this.lblAdministradores.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblUsuarios.AutoSize = true;
+            this.lblUsuarios.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarios.Location = new System.Drawing.Point(3, 6);
+            this.lblUsuarios.Name = "lblUsuarios";
+            this.lblUsuarios.Size = new System.Drawing.Size(132, 26);
+            this.lblUsuarios.TabIndex = 2;
+            this.lblUsuarios.Text = "USUARIOS";
+            this.lblUsuarios.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panelAdmin
             // 
             this.panelAdmin.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panelAdmin.Controls.Add(this.panel2);
-            this.panelAdmin.Controls.Add(this.lblAdministradores);
+            this.panelAdmin.Controls.Add(this.lblUsuarios);
             this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAdmin.Location = new System.Drawing.Point(0, 0);
             this.panelAdmin.Name = "panelAdmin";
@@ -90,7 +90,7 @@
             // panelContenedorAdministradores
             // 
             this.panelContenedorAdministradores.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panelContenedorAdministradores.Controls.Add(this.dtgvContenedorAdministradores);
+            this.panelContenedorAdministradores.Controls.Add(this.dtgvContenedorUsuarios);
             this.panelContenedorAdministradores.Controls.Add(this.tsAdministradores);
             this.panelContenedorAdministradores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedorAdministradores.Location = new System.Drawing.Point(0, 35);
@@ -98,14 +98,14 @@
             this.panelContenedorAdministradores.Size = new System.Drawing.Size(800, 415);
             this.panelContenedorAdministradores.TabIndex = 9;
             // 
-            // dtgvContenedorAdministradores
+            // dtgvContenedorUsuarios
             // 
-            this.dtgvContenedorAdministradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvContenedorAdministradores.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvContenedorAdministradores.Location = new System.Drawing.Point(0, 25);
-            this.dtgvContenedorAdministradores.Name = "dtgvContenedorAdministradores";
-            this.dtgvContenedorAdministradores.Size = new System.Drawing.Size(800, 390);
-            this.dtgvContenedorAdministradores.TabIndex = 10;
+            this.dtgvContenedorUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvContenedorUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvContenedorUsuarios.Location = new System.Drawing.Point(0, 25);
+            this.dtgvContenedorUsuarios.Name = "dtgvContenedorUsuarios";
+            this.dtgvContenedorUsuarios.Size = new System.Drawing.Size(800, 390);
+            this.dtgvContenedorUsuarios.TabIndex = 10;
             // 
             // tsAdministradores
             // 
@@ -246,7 +246,7 @@
             this.panelAdmin.PerformLayout();
             this.panelContenedorAdministradores.ResumeLayout(false);
             this.panelContenedorAdministradores.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvContenedorAdministradores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvContenedorUsuarios)).EndInit();
             this.tsAdministradores.ResumeLayout(false);
             this.tsAdministradores.PerformLayout();
             this.ResumeLayout(false);
@@ -254,7 +254,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblAdministradores;
+        private System.Windows.Forms.Label lblUsuarios;
         private System.Windows.Forms.Panel panelAdmin;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelContenedorAdministradores;
@@ -272,7 +272,7 @@
         private System.Windows.Forms.ToolStripButton tsbtnEliminarAdmin;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton tsbtnImprimirAdmin;
-        public System.Windows.Forms.DataGridView dtgvContenedorAdministradores;
+        public System.Windows.Forms.DataGridView dtgvContenedorUsuarios;
         private System.Drawing.Printing.PrintDocument pdrImprimir;
         private System.Windows.Forms.ImageList imlImagenes;
     }
