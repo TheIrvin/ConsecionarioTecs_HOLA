@@ -52,6 +52,12 @@
     <Compile Include="AdminMenu.Designer.cs">
       <DependentUpon>AdminMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="AggVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AggVenta.Designer.cs">
+      <DependentUpon>AggVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="AgregarAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </Compile>
     <EmbeddedResource Include="AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AggVenta.resx">
+      <DependentUpon>AggVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AgregarAdmin.resx">
       <DependentUpon>AgregarAdmin.cs</DependentUpon>
