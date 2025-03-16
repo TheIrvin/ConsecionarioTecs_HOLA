@@ -55,5 +55,10 @@ namespace ConsecionarioTecs
         {
 
         }
+
+        private void lblModelo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
