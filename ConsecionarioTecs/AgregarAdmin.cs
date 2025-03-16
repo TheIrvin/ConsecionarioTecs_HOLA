@@ -34,23 +34,23 @@ namespace ConsecionarioTecs
             {
                 case 1:
                     // Insertar en la tabla Administradores
-                    cadena = "'" + txtNombreAdmin.Text + "','" + txtDireccion.Text + "','" +
+                    cadena = "'" + txtNombreUsuario.Text + "','" + txtEmail.Text + "','" +
                              txtCiudad.Text + "','"  + txtRegion.Text + "','" + cboxPaisUsu.Text + "','" +
                              txtTelefono.Text + "','" + txtUsuarioAdmin.Text + "','" + txtContraseñaAdmin.Text + "','" + cboxCargo.Text + "','" + txtSucursal.Text + "'";
 
                     conSQL.insertarDatos("Administradores",
-                        "NombreAdmin,Email,Ciudad,Region,Pais,Telefono,User,Password,RolApp,Sucursal",
+                        "UsuarioNombre,Email,Ciudad,Region,Pais,Telefono,[User],[Password],RolApp,Sucursal",
                         cadena);
 
                     // Insertar en la tabla Logins con el nombre del administrador
-                    string valoresLogin = "'" + txtNombreAdmin.Text + "','" + txtUsuarioAdmin.Text + "','" + txtContraseñaAdmin.Text + "','Administrador'";
-                    conSQL.insertarDatos("Logins", "Nombre,Usuario,Password,Tipo_usuario", valoresLogin);
+                    string valoresLogin = "'" + txtNombreUsuario.Text + "','" + txtUsuarioAdmin.Text + "','" + txtContraseñaAdmin.Text + "','Administrador'";
+                    conSQL.insertarDatos("Logins", "Nombre,Usuario,Contraseña,Tipo_usuario", valoresLogin);
                     break;
 
                 case 2:
                     // Actualizar datos en la tabla Administradores
-                    cadena = "NombreAdmin='" + txtNombreAdmin.Text +
-                             "', Direccion='" + txtDireccion.Text +
+                    cadena = "UsuarioNombre='" + txtNombreUsuario.Text +
+                             "', Email='" + txtEmail.Text +
                              "', Ciudad='" + txtCiudad.Text +
                              "', Region='" + txtRegion.Text +
                              "', Pais='" + cboxPaisUsu.Text +
@@ -60,15 +60,15 @@ namespace ConsecionarioTecs
                              "', Cargo='" + cboxCargo.Text +
                              "', Sucursal='" + txtSucursal.Text + "'";
 
-                    conSQL.actualizarDatos("Administradores", cadena, "AdministradorID='" + txtID.Text + "'");
+                    conSQL.actualizarDatos("Administradores", cadena, "UsuarioID='" + txtID.Text + "'");
 
                     // También actualizar la contraseña en la tabla Logins si cambió
-                    string valoresActualizarLogin = "Password='" + txtContraseñaAdmin.Text + "'";
+                    string valoresActualizarLogin = "Contraseña='" + txtContraseñaAdmin.Text + "'";
                     conSQL.actualizarDatos("Logins", valoresActualizarLogin, "Usuario='" + txtUsuarioAdmin.Text + "'");
                     break;
             }
 
-            frmAdmin.dtgvContenedorAdministradores.DataSource = conSQL.retornaRegistros("SELECT * FROM Administradores");
+            frmAdmin.dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("SELECT * FROM Administradores");
             this.Close();
         }
 

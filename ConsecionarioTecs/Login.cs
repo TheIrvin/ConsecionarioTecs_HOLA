@@ -15,7 +15,7 @@ namespace ConsecionarioTecs
 {
     public partial class Login : Form
     {
-        string connectionString = "Server=ALXJANDR07\\SQLEXPRESS;Database=CompañiaTecsBDD;User id=AleAdmin;Password=luis;";
+        string connectionString = "Server=DESKTOP-9SMDLH8\\SQLEXPRESS;Database=CompañiaTecsBDD;User id=AccesoChari;Password=accesochari;";
         public Login()
         {
             InitializeComponent();
@@ -82,49 +82,43 @@ namespace ConsecionarioTecs
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string queryAdmin = "SELECT * FROM Administradores WHERE UsuarioAdmin = @usuario AND ContraseñaAdmin = @contrasena";
-                string queryCliente = "SELECT * FROM Clientes WHERE LoginUsuario = @usuario AND LoginContraseña = @contrasena";
+                string query = "SELECT RolApp FROM Administradores WHERE [User] = @usuario AND [Password] = @contrasena";
 
-                SqlCommand cmdAdmin = new SqlCommand(queryAdmin, conn);
-                SqlCommand cmdCliente = new SqlCommand(queryCliente, conn);
-
-                cmdAdmin.Parameters.AddWithValue("@usuario", usuario);
-                cmdAdmin.Parameters.AddWithValue("@contrasena", contrasena);
-
-                cmdCliente.Parameters.AddWithValue("@usuario", usuario);
-                cmdCliente.Parameters.AddWithValue("@contrasena", contrasena);
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@usuario", usuario);
+                cmd.Parameters.AddWithValue("@contrasena", contrasena);
 
                 try
                 {
                     conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                    SqlDataReader readerAdmin = cmdAdmin.ExecuteReader();
-
-                    if (readerAdmin.Read())
+                    if (reader.Read()) // Si hay coincidencia
                     {
-                        MessageBox.Show("¡Bienvenido Administrador!");
-                        this.Hide();
-                        MenuAdmin adminForm = new MenuAdmin();
-                        adminForm.Show();
-                        return;
+                        string rol = reader["RolApp"].ToString();
+                        reader.Close(); // Cerrar reader antes de abrir el nuevo formulario
+
+                        if (rol == "Administrador")
+                        {
+                            MessageBox.Show("¡Bienvenido Administrador!");
+                            this.Hide();
+                            MenuAdmin adminfrm = new MenuAdmin();
+                            adminfrm.Show();
+                        }
+                        else if (rol == "Empleado")
+                        {
+                            MessageBox.Show("¡Bienvenido Empleado!");
+                            this.Hide();
+                            VistaCliente empleadoForm = new VistaCliente();
+                            empleadoForm.Show();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
-                    readerAdmin.Close();
-
-                    SqlDataReader readerCliente = cmdCliente.ExecuteReader();
-
-                    if (readerCliente.Read())
-                    {
-                        MessageBox.Show("¡Bienvenido Cliente!");
-                        this.Hide();
-                        VistaCliente clienteForm = new VistaCliente();
-                        clienteForm.Show();
-                        return;
-                    }
-
-                    readerCliente.Close();
-
-                    MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    reader.Close(); // Asegurar que siempre se cierre
                 }
                 catch (Exception ex)
                 {
