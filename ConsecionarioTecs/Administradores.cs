@@ -71,6 +71,7 @@ namespace FormularioDeInicio
         {
             AgregarAdmin modiAdmin = new AgregarAdmin(2);
             this.AddOwnedForm(modiAdmin);
+
             modiAdmin.lblAggUsuario.Visible = false;
             modiAdmin.lblModificarUsuario.Visible = true;
             modiAdmin.txtID.Text = dtgvContenedorUsuarios[0, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
