@@ -183,9 +183,9 @@
             // 
             // pnl_btn_Nuevo_proveedor
             // 
-            this.pnl_btn_Nuevo_proveedor.Location = new System.Drawing.Point(0, 334);
+            this.pnl_btn_Nuevo_proveedor.Location = new System.Drawing.Point(0, 190);
             this.pnl_btn_Nuevo_proveedor.Name = "pnl_btn_Nuevo_proveedor";
-            this.pnl_btn_Nuevo_proveedor.Size = new System.Drawing.Size(864, 206);
+            this.pnl_btn_Nuevo_proveedor.Size = new System.Drawing.Size(864, 350);
             this.pnl_btn_Nuevo_proveedor.TabIndex = 2;
             this.pnl_btn_Nuevo_proveedor.Visible = false;
             // 

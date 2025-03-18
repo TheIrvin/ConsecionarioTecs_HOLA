@@ -20,7 +20,11 @@ namespace ConsecionarioTecs
 
         private void Gestionar_Proveedores_DGV_Load(object sender, EventArgs e)
         {
-            dgv_Gestionar_Proveedor.DataSource = conSQL.retornaRegistros("SELECT * FROM Compra_Motos_Proveedores");
+            dgv_Gestionar_Proveedor.DataSource = conSQL.retornaRegistros(@"
+                   SELECT mc.ID_Moto, p.Nombre_Empresa, p.RUC_Empresa, mc.Modelo_Moto, mc.Marca_Moto, 
+                   mc.Año_Moto, mc.Valoración, mc.Precio_Moto, mc.Stock  
+                   FROM Moto_Compra mc
+                   INNER JOIN Proveedor_info p ON mc.ID_Proveedor = p.ID_Proveedor");
 
             dgv_Gestionar_Proveedor.Refresh();
 
@@ -58,45 +62,67 @@ namespace ConsecionarioTecs
         {
             if (dgv_Gestionar_Proveedor.RowCount > 0)
             {
-                string idCompra = dgv_Gestionar_Proveedor[1, dgv_Gestionar_Proveedor.CurrentRow.Index].Value.ToString(); 
+                string idCompra = dgv_Gestionar_Proveedor.CurrentRow.Cells["ID_Compra"].Value.ToString();
+
                 DialogResult opc = MessageBox.Show(this,
-                    "Se eliminará la fila " + dgv_Gestionar_Proveedor.CurrentRow.Index + ", que pertenece a la compra " + idCompra,
+                    $"Se eliminará la compra {idCompra}. ¿Desea continuar?",
                     "Confirmación de Borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (opc == DialogResult.Yes)
                 {
-                    conSQL.eliminarDatos("Compra_Motos_Proveedores", "ID_Compra='" + idCompra + "'");
-                    dgv_Gestionar_Proveedor.DataSource = conSQL.retornaRegistros("SELECT * FROM Compra_Motos_Proveedores");
+                    if (conSQL.eliminarDatos("Compra_Motos_Proveedores", "ID_Compra='" + idCompra + "'"))
+                    {
+                        dgv_Gestionar_Proveedor.DataSource = conSQL.retornaRegistros("SELECT * FROM Compra_Motos_Proveedores");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar el registro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("No hay filas seleccionadas.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
 
         private void tstFiltro_Click(object sender, EventArgs e)
         {
-            dgv_Gestionar_Proveedor.DataSource = conSQL.retornaRegistros(
-            "SELECT * FROM Compra_Motos_Proveedores " +
-            "WHERE ID_Compra LIKE '%" + tstFiltro.Text + "%' " +
-            "OR Nombre_Empresa LIKE '%" + tstFiltro.Text + "%' " +
-            "OR Modelo_Moto LIKE '%" + tstFiltro.Text + "%'"
+            dgv_Gestionar_Proveedor.DataSource = conSQL.retornaRegistros(@"
+             SELECT mc.ID_Moto, p.Nombre_Empresa, p.RUC_Empresa, mc.Modelo_Moto, mc.Marca_Moto, 
+               mc.Año_Moto, mc.Valoración, mc.Precio_Moto, mc.Stock  
+               FROM Moto_Compra mc
+        INNER JOIN Proveedor_info p ON mc.ID_Proveedor = p.ID_Proveedor
+        WHERE mc.ID_Moto LIKE '%" + tstFiltro.Text + "%' " +
+           "OR p.Nombre_Empresa LIKE '%" + tstFiltro.Text + "%' " +
+           "OR mc.Modelo_Moto LIKE '%" + tstFiltro.Text + "%'"
             );
         }
 
         private void tstFiltro_KeyUp(object sender, KeyEventArgs e)
         {
-            if (tstFiltro.Text.Length > 2) 
+            if (tstFiltro.Text.Length > 2)
             {
-                dgv_Gestionar_Proveedor.DataSource = conSQL.retornaRegistros(
-                    "SELECT * FROM Compra_Motos_Proveedores " +
-                    "WHERE ID_Compra LIKE '%" + tstFiltro.Text + "%' " +
-                    "OR Nombre_Empresa LIKE '%" + tstFiltro.Text + "%' " +
-                    "OR Modelo_Moto LIKE '%" + tstFiltro.Text + "%'"
+                dgv_Gestionar_Proveedor.DataSource = conSQL.retornaRegistros(@"
+            SELECT mc.ID_Moto, p.Nombre_Empresa, p.RUC_Empresa, mc.Modelo_Moto, mc.Marca_Moto, 
+                   mc.Año_Moto, mc.Valoración, mc.Precio_Moto, mc.Stock  
+            FROM Moto_Compra mc
+            INNER JOIN Proveedor_info p ON mc.ID_Proveedor = p.ID_Proveedor
+            WHERE mc.ID_Moto LIKE '%" + tstFiltro.Text + "%' " +
+                      "OR p.Nombre_Empresa LIKE '%" + tstFiltro.Text + "%' " +
+                      "OR mc.Modelo_Moto LIKE '%" + tstFiltro.Text + "%'"
                 );
             }
 
             if (string.IsNullOrWhiteSpace(tstFiltro.Text))
             {
-                dgv_Gestionar_Proveedor.DataSource = conSQL.retornaRegistros("SELECT * FROM Compra_Motos_Proveedores");
+                dgv_Gestionar_Proveedor.DataSource = conSQL.retornaRegistros(@"
+                  SELECT mc.ID_Moto, p.Nombre_Empresa, p.RUC_Empresa, mc.Modelo_Moto, mc.Marca_Moto, 
+                  mc.Año_Moto, mc.Valoración, mc.Precio_Moto, mc.Stock  
+                  FROM Moto_Compra mc
+                  INNER JOIN Proveedor_info p ON mc.ID_Proveedor = p.ID_Proveedor"
+                );
             }
         }
 

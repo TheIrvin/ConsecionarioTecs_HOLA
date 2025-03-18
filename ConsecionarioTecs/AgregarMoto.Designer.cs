@@ -343,7 +343,7 @@
             this.txtModelo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtModelo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtModelo.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModelo.Location = new System.Drawing.Point(73, 27);
+            this.txtModelo.Location = new System.Drawing.Point(75, 44);
             this.txtModelo.Margin = new System.Windows.Forms.Padding(4);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(308, 13);

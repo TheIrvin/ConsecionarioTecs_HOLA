@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace ConsecionarioTecs
 {
@@ -76,6 +77,41 @@ namespace ConsecionarioTecs
             }
             return true;
         }
+        public SqlConnection llevarConexion()
+        {
+            SqlConnection oCon = new SqlConnection();
+            try
+            {
+                // Definir la cadena de conexión
+                Cadena = "Server=" + Server + "; Database=" + Database + "; User id=" + Usuario.Trim() + "; Password=" + Clave;
+                oCon.ConnectionString = Cadena;
+                oCon.Open();  // Intentar abrir la conexión
+
+                return oCon;  // Si se abre correctamente, devolver la conexión
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Error al abrir la conexión: " + ex.Message);
+            }
+        }
+        public bool ejecutarComando(SqlCommand cmd)
+        {
+            try
+            {
+                // Asegurarse de que la conexión esté abierta
+                using (SqlConnection con = llevarConexion())
+                {
+                    cmd.Connection = con;  // Asignar la conexión al comando
+                    cmd.ExecuteNonQuery(); // Ejecutar el comando (sin devolver resultados)
+                }
+                return true;  // Si la ejecución es exitosa, devolver true
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al ejecutar el comando: " + ex.Message);
+                return false;  // Si ocurre un error, devolver false
+            }
+        }
 
         public bool insertarDatos(string Tabla, string Campos, string Datos)
         {
@@ -125,6 +161,24 @@ namespace ConsecionarioTecs
             oDR.Close();
             cerrarConexion();
             return temporal;
+        }
+        public object retornaValor(string consulta)
+        {
+            try
+            {
+                if (!abrirConexion()) return null;
+
+                oCom = new SqlCommand(consulta, oCon);
+                object resultado = oCom.ExecuteScalar();
+                cerrarConexion();
+
+                return resultado ?? 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en retornaValor: " + ex.Message);
+                return null;
+            }
         }
 
         public String retornaCadena(string Seleccion, string Tabla, string Condicion)

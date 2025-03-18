@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,39 +65,58 @@ namespace ConsecionarioTecs
         {
             Gestionar_Proveedores_DGV frm_gestProveedor = Owner as Gestionar_Proveedores_DGV;
 
-            switch (tipo)
+            // 🔥 Insertar Proveedor en Proveedor_info
+            string cadenaProveedor = "'" + txtBox_PVD_nombreEmpresa.Text + "','" + txtBox_PVD_contacto.Text + "','" +
+                                     txtBox_PVD_dirección.Text + "','" + txtBox_PVD_Ciudad.Text + "','" +
+                                     txtBox_PVD_Región.Text + "','" + txtBox_PVD_codigoPostal.Text + "','" +
+                                     cBox_País.Text + "','" + txtBox_PVD_RUC.Text + "','" +
+                                     txtBox_PVD_teléfono.Text + "','" + txtBox_PVD_Email.Text + "'";
+
+            conSQL.insertarDatos("Proveedor_info",
+                "Nombre_Empresa, Nombre_Contacto, Dirección, Ciudad, Región, Codigo_Postal, País, RUC_Empresa, Teléfono, Email",
+            cadenaProveedor);
+
+            // 🔥 Obtener ID del proveedor recién insertado
+            string queryIDProveedor = "SELECT IDENT_CURRENT('Proveedor_info')";
+            int idProveedor = Convert.ToInt32(conSQL.retornaValor(queryIDProveedor));
+
+            // 🔥 Convertir imagen a bytes para guardar en la base de datos
+            byte[] imagenMoto = null;
+            if (picBox_PVD_fotoMoto.Image != null)
             {
-                case 1:
-                    cadena = "'" + txtBox_PVD_idMoto.Text + "','" + txtBox_PVD_nombreEmpresa.Text + "','" + txtBox_PVD_RUC.Text + "','" +
-                             txtBox_PVD_dirección.Text + "','" + cBox_Cuidad.Text + "','" + txtBox_PVD_Región.Text + "','" +
-                             txtBox_PVD_codigoPostal.Text + "','" + txtBox_PVD_País.Text + "','" + txtBox_PVD_contacto.Text + "','" +
-                             txtBox_PVD_Email.Text + "','" + txtBox_PVD_teléfono.Text + "','" + txtBox_PVD_modeloMoto.Text + "','" +
-                             txtBox_PVD_marcaMoto.Text + "','" + txtBox_PVD_añoMoto.Text + "'," + txtBox_PVD_precioMoto.Text + "," +
-                             txtBox_PVD_totalMotos.Text + ",'" + "SI" + "'";
-
-                    conSQL.insertarDatos("Compra_Motos_Proveedores",
-                        "ID_Moto, Nombre_Empresa, RUC_Empresa, Direccion, Ciudad, Region, Codigo_Postal, Pais, Nombre_Contacto, Email, Telefono, " +
-                        "Modelo_Moto, Marca_Moto, Año_Moto, Precio_Moto, Total_Motos, Incluye_IVA",
-                        cadena);
-                    break; 
-
-                case 2:
-                    cadena = "Nombre_Empresa='" + txtBox_PVD_nombreEmpresa.Text + "', RUC_Empresa='" + txtBox_PVD_RUC.Text +
-                             "', Direccion='" + txtBox_PVD_dirección.Text + "', Ciudad='" + cBox_Cuidad.Text +
-                             "', Region='" + txtBox_PVD_Región.Text + "', Codigo_Postal='" + txtBox_PVD_codigoPostal.Text +
-                             "', Pais='" + txtBox_PVD_País.Text + "', Nombre_Contacto='" + txtBox_PVD_contacto.Text +
-                             "', Email='" + txtBox_PVD_Email.Text + "', Telefono='" + txtBox_PVD_teléfono.Text +
-                             "', Modelo_Moto='" + txtBox_PVD_modeloMoto.Text + "', Marca_Moto='" + txtBox_PVD_marcaMoto.Text +
-                             "', Año_Moto='" + txtBox_PVD_añoMoto.Text + "', Precio_Moto=" + txtBox_PVD_precioMoto.Text +
-                             ", Total_Motos=" + txtBox_PVD_totalMotos.Text + ", Incluye_IVA='SI'";
-
-                    conSQL.actualizarDatos("Compra_Motos_Proveedores", cadena, "ID_Moto='" + txtBox_PVD_idMoto.Text + "'");
-                    break;
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    picBox_PVD_fotoMoto.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    imagenMoto = ms.ToArray();
+                }
             }
 
-            frm_gestProveedor.dgv_Gestionar_Proveedor.DataSource = conSQL.retornaRegistros("SELECT * FROM Compra_Motos_Proveedores");
-            this.Close();
+            // 🔥 Insertar Moto en Moto_Compra
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO Moto_Compra " +
+                "(ID_Moto, ID_Proveedor, Modelo_Moto, Marca_Moto, Año_Moto, Valoración, Precio_Moto, Total_Motos, Stock, Foto_Moto) " +
+                "VALUES (@ID_Moto, @ID_Proveedor, @Modelo_Moto, @Marca_Moto, @Año_Moto, @Valoración, @Precio_Moto, @Total_Motos, @Stock, @Foto_Moto)", conSQL.llevarConexion()))
+            {
+                cmd.Parameters.AddWithValue("@ID_Moto", txtBox_PVD_idMoto.Text);
+                cmd.Parameters.AddWithValue("@ID_Proveedor", idProveedor);
+                cmd.Parameters.AddWithValue("@Modelo_Moto", txtBox_PVD_modeloMoto.Text);
+                cmd.Parameters.AddWithValue("@Marca_Moto", txtBox_PVD_marcaMoto.Text);
+                cmd.Parameters.AddWithValue("@Año_Moto", int.Parse(txtBox_PVD_añoMoto.Text));
+                cmd.Parameters.AddWithValue("@Valoración", 5);
+                cmd.Parameters.AddWithValue("@Precio_Moto", decimal.Parse(txtBox_PVD_precioMoto.Text));
+                cmd.Parameters.AddWithValue("@Total_Motos", int.Parse(txtBox_PVD_totalMotos.Text));
+                cmd.Parameters.AddWithValue("@Stock", int.Parse(txtBox_PVD_totalMotos.Text)); // 🔥 Stock igual a Total_Motos
+                cmd.Parameters.Add("@Foto_Moto", SqlDbType.VarBinary).Value = (imagenMoto ?? (object)DBNull.Value);
 
+                bool resultado = conSQL.ejecutarComando(cmd);
+            }
+
+            frm_gestProveedor.dgv_Gestionar_Proveedor.DataSource = conSQL.retornaRegistros(@"
+                   SELECT mc.ID_Moto, p.Nombre_Empresa, p.RUC_Empresa, mc.Modelo_Moto, mc.Marca_Moto, 
+                   mc.Año_Moto, mc.Valoración, mc.Precio_Moto, mc.Stock  
+                   FROM Moto_Compra mc
+                   INNER JOIN Proveedor_info p ON mc.ID_Proveedor = p.ID_Proveedor"
+            );
+            this.Close();
         }
 
 
