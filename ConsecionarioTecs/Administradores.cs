@@ -25,7 +25,7 @@ namespace FormularioDeInicio
 
         private void Administradores_Load(object sender, EventArgs e)
         {
-            dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("Select * from Administradores");
+            dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("Select * from Usuarios");
         }
 
         private void tsbtnEliminarAdmin_Click(object sender, EventArgs e)
@@ -35,8 +35,8 @@ namespace FormularioDeInicio
                 DialogResult opc = MessageBox.Show(this, "Se eliminará la fila " + dtgvContenedorUsuarios.CurrentRow.Index + ", que pertenece al administrador " + dtgvContenedorUsuarios[0, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString(), "Confirmación de Borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (opc == DialogResult.Yes)
                 {
-                    conSQL.eliminarDatos("Administradores", "UsuarioID='" + dtgvContenedorUsuarios[0, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString() + "'");
-                    dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("Select * from Administradores");
+                    conSQL.eliminarDatos("Usuarios", "UsuarioID='" + dtgvContenedorUsuarios[0, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString() + "'");
+                    dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("Select * from Usuarios");
                 }
             }
         }
@@ -45,17 +45,16 @@ namespace FormularioDeInicio
         {
             if (tstxtFiltrarAdmin.Text.Length > 4)
             {
-                dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("Select * from Administradores where UsuarioID like '%" + tstxtFiltrarAdmin.Text + "%' or UsuarioNombre like '%" + tstxtFiltrarAdmin.Text + "%'");
+                dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("Select * from Usuarios where UsuarioID like '%" + tstxtFiltrarAdmin.Text + "%' or UsuarioNombre like '%" + tstxtFiltrarAdmin.Text + "%'");
             }
 
             if (tstxtFiltrarAdmin.Text.Length == 0)
-                dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("Select * from Administradores");
+                dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("Select * from Usuarios");
         }
 
         private void tsbtnFiltrarAdmin_Click(object sender, EventArgs e)
         {
-            dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("Select * from Administradores where UsuarioID like '%" + tstxtFiltrarAdmin.Text + "%' or UsuarioNombre like '%" + tstxtFiltrarAdmin.Text + "%'");
-
+            dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("Select * from Usuarios where UsuarioID like '%" + tstxtFiltrarAdmin.Text + "%' or UsuarioNombre like '%" + tstxtFiltrarAdmin.Text + "%'");
         }
 
         private void tsbtnAgregarAdmin_Click(object sender, EventArgs e)
@@ -82,8 +81,8 @@ namespace FormularioDeInicio
             modiAdmin.cboxPaisUsu.Text = dtgvContenedorUsuarios[6, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
             modiAdmin.txtTelefono.Text = dtgvContenedorUsuarios[7, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
             modiAdmin.cboxCargo.Text = dtgvContenedorUsuarios[8, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtUsuarioAdmin.Text = dtgvContenedorUsuarios[9, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtContraseñaAdmin.Text = dtgvContenedorUsuarios[10, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+            modiAdmin.txtUsuarioUsu.Text = dtgvContenedorUsuarios[9, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+            modiAdmin.txtContraseñaUsuario.Text = dtgvContenedorUsuarios[10, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
             modiAdmin.txtID.Enabled = false; //puedo cambiar lo que sea, menos el código y por eso está en false
             modiAdmin.Show();
         }
@@ -123,7 +122,7 @@ namespace FormularioDeInicio
 
             fuente = new Font("Arial", 12, FontStyle.Regular);
             Conexion_BDD sqlCon = new Conexion_BDD();
-            string cadena = "SELECT NombreAdmin, Direccion, Ciudad, Contacto, Region, Pais, Telefono, Cargo, UsuarioAdmin, ContraseñaAdmin FROM Administradores";
+            string cadena = "SELECT NombreAdmin, Direccion, Ciudad, Contacto, Region, Pais, Telefono, Cargo, UsuarioAdmin, ContraseñaAdmin FROM Usuarios";
             DataTable dt = sqlCon.retornaRegistros(cadena);
 
             for (int i = 0; Bandera < dt.Rows.Count && i < ClientexPag; i++, Bandera++)

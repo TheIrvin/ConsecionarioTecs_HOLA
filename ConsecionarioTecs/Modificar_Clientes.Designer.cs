@@ -161,7 +161,7 @@
             this.btnCerrarAggC.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrarAggC.Name = "btnCerrarAggC";
             this.btnCerrarAggC.Size = new System.Drawing.Size(26, 28);
-            this.btnCerrarAggC.TabIndex = 14;
+            this.btnCerrarAggC.TabIndex = 16;
             this.btnCerrarAggC.UseVisualStyleBackColor = true;
             this.btnCerrarAggC.Click += new System.EventHandler(this.btnCerrarAggC_Click);
             // 
@@ -188,7 +188,7 @@
             this.lblaggName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblaggName.Name = "lblaggName";
             this.lblaggName.Size = new System.Drawing.Size(140, 19);
-            this.lblaggName.TabIndex = 1;
+            this.lblaggName.TabIndex = 50;
             this.lblaggName.Text = "Nombre del cliente:";
             // 
             // label2
@@ -202,7 +202,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 19);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 61;
             this.label2.Text = "Región:";
             // 
             // label3
@@ -216,7 +216,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 19);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 60;
             this.label3.Text = "Ciudad:";
             // 
             // label4
@@ -230,7 +230,7 @@
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 19);
-            this.label4.TabIndex = 4;
+            this.label4.TabIndex = 53;
             this.label4.Text = "Dirección:";
             // 
             // label5
@@ -244,7 +244,7 @@
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(129, 19);
-            this.label5.TabIndex = 5;
+            this.label5.TabIndex = 52;
             this.label5.Text = "Titulo del Cliente:";
             // 
             // label6
@@ -258,7 +258,7 @@
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(157, 19);
-            this.label6.TabIndex = 6;
+            this.label6.TabIndex = 51;
             this.label6.Text = "Compañía del Cliente:";
             // 
             // label7
@@ -272,7 +272,7 @@
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 19);
-            this.label7.TabIndex = 7;
+            this.label7.TabIndex = 55;
             this.label7.Text = "País:";
             // 
             // label8
@@ -286,7 +286,7 @@
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 19);
-            this.label8.TabIndex = 8;
+            this.label8.TabIndex = 56;
             this.label8.Text = "Teléfono:";
             // 
             // label10
@@ -300,7 +300,7 @@
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 19);
-            this.label10.TabIndex = 10;
+            this.label10.TabIndex = 54;
             this.label10.Text = "Email:";
             // 
             // txtNombreC
@@ -361,7 +361,7 @@
             this.txtTelefonoC.MaxLength = 10;
             this.txtTelefonoC.Name = "txtTelefonoC";
             this.txtTelefonoC.Size = new System.Drawing.Size(134, 25);
-            this.txtTelefonoC.TabIndex = 9;
+            this.txtTelefonoC.TabIndex = 10;
             // 
             // txtEmailCli
             // 
@@ -373,7 +373,7 @@
             this.txtEmailCli.MaxLength = 50;
             this.txtEmailCli.Name = "txtEmailCli";
             this.txtEmailCli.Size = new System.Drawing.Size(611, 25);
-            this.txtEmailCli.TabIndex = 11;
+            this.txtEmailCli.TabIndex = 6;
             // 
             // btnAgregarCliente
             // 
@@ -387,7 +387,7 @@
             this.btnAgregarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarCliente.Name = "btnAgregarCliente";
             this.btnAgregarCliente.Size = new System.Drawing.Size(166, 30);
-            this.btnAgregarCliente.TabIndex = 12;
+            this.btnAgregarCliente.TabIndex = 14;
             this.btnAgregarCliente.Text = "AGREGAR";
             this.btnAgregarCliente.UseVisualStyleBackColor = false;
             this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
@@ -404,7 +404,7 @@
             this.btnCancelarC.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelarC.Name = "btnCancelarC";
             this.btnCancelarC.Size = new System.Drawing.Size(166, 30);
-            this.btnCancelarC.TabIndex = 13;
+            this.btnCancelarC.TabIndex = 15;
             this.btnCancelarC.Text = "CANCELAR";
             this.btnCancelarC.UseVisualStyleBackColor = false;
             this.btnCancelarC.Click += new System.EventHandler(this.btnCancelarC_Click);
@@ -551,7 +551,7 @@
             this.txtCiudadC.MaxLength = 20;
             this.txtCiudadC.Name = "txtCiudadC";
             this.txtCiudadC.Size = new System.Drawing.Size(133, 25);
-            this.txtCiudadC.TabIndex = 6;
+            this.txtCiudadC.TabIndex = 9;
             // 
             // txtRegionC
             // 
@@ -576,7 +576,7 @@
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(136, 19);
-            this.label9.TabIndex = 9;
+            this.label9.TabIndex = 57;
             this.label9.Text = "Estado del Cliente:";
             // 
             // cboxEstadoCli
@@ -590,7 +590,7 @@
             this.cboxEstadoCli.Location = new System.Drawing.Point(148, 344);
             this.cboxEstadoCli.Name = "cboxEstadoCli";
             this.cboxEstadoCli.Size = new System.Drawing.Size(116, 21);
-            this.cboxEstadoCli.TabIndex = 36;
+            this.cboxEstadoCli.TabIndex = 13;
             // 
             // cboxPais
             // 
@@ -794,7 +794,7 @@
             this.cboxPais.Location = new System.Drawing.Point(71, 250);
             this.cboxPais.Name = "cboxPais";
             this.cboxPais.Size = new System.Drawing.Size(132, 21);
-            this.cboxPais.TabIndex = 37;
+            this.cboxPais.TabIndex = 7;
             // 
             // panel1
             // 
@@ -825,7 +825,7 @@
             this.txtCedulaCli.MaxLength = 10;
             this.txtCedulaCli.Name = "txtCedulaCli";
             this.txtCedulaCli.Size = new System.Drawing.Size(133, 25);
-            this.txtCedulaCli.TabIndex = 38;
+            this.txtCedulaCli.TabIndex = 11;
             // 
             // label1
             // 
@@ -838,7 +838,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 19);
-            this.label1.TabIndex = 39;
+            this.label1.TabIndex = 58;
             this.label1.Text = "Cédula :";
             // 
             // panel7
@@ -890,7 +890,7 @@
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(120, 19);
-            this.label11.TabIndex = 42;
+            this.label11.TabIndex = 59;
             this.label11.Text = "Fecha Registro :";
             // 
             // mFechaRegistroC
@@ -898,7 +898,7 @@
             this.mFechaRegistroC.Location = new System.Drawing.Point(583, 302);
             this.mFechaRegistroC.Name = "mFechaRegistroC";
             this.mFechaRegistroC.Size = new System.Drawing.Size(118, 20);
-            this.mFechaRegistroC.TabIndex = 43;
+            this.mFechaRegistroC.TabIndex = 12;
             // 
             // panel21
             // 

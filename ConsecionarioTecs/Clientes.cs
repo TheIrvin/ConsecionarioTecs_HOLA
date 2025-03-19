@@ -32,7 +32,7 @@ namespace FormularioDeInicio
         {
             if (dtgvContenedorClientes.RowCount > 0)
             {
-                DialogResult opc = MessageBox.Show(this, "Se eliminará la fila " + dtgvContenedorClientes.CurrentRow.Index + ", que pertenece al administrador " + dtgvContenedorClientes[0, dtgvContenedorClientes.CurrentRow.Index].Value.ToString(), "Confirmación de Borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult opc = MessageBox.Show(this, "Se eliminará la fila " + dtgvContenedorClientes.CurrentRow.Index + ", que pertenece al cliente " + dtgvContenedorClientes[0, dtgvContenedorClientes.CurrentRow.Index].Value.ToString(), "Confirmación de Borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (opc == DialogResult.Yes)
                 {
                     conSQL.eliminarDatos("Clientes", "ClienteID='" + dtgvContenedorClientes[0, dtgvContenedorClientes.CurrentRow.Index].Value.ToString() + "'");

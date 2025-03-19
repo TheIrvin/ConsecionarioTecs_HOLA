@@ -82,7 +82,7 @@ namespace ConsecionarioTecs
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT RolApp FROM Administradores WHERE [User] = @usuario AND [Password] = @contrasena";
+                string query = "SELECT RolApp FROM Usuarios WHERE [User] = @usuario AND [Password] = @contrasena";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@usuario", usuario);

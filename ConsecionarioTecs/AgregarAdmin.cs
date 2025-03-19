@@ -33,42 +33,42 @@ namespace ConsecionarioTecs
             switch (tipo)
             {
                 case 1:
-                    // Insertar en la tabla Administradores
+                    // Insertar en la tabla Usuarios
                     cadena = "'" + txtNombreUsuario.Text + "','" + txtEmail.Text + "','" +
-                             txtCiudad.Text + "','"  + txtRegion.Text + "','" + cboxPaisUsu.Text + "','" +
-                             txtTelefono.Text + "','" + txtUsuarioAdmin.Text + "','" + txtContraseñaAdmin.Text + "','" + cboxCargo.Text + "','" + txtSucursal.Text + "'";
+                             txtSucursal.Text + "','"  + cboxPaisUsu.Text + "','" + txtCiudad.Text + "','" +
+                             cboxCargo.Text + "','" + txtRegion.Text + "','" + txtTelefono.Text + "','" + txtUsuarioUsu.Text + "','" + txtContraseñaUsuario.Text + "'";
 
-                    conSQL.insertarDatos("Administradores",
-                        "UsuarioNombre,Email,Ciudad,Region,Pais,Telefono,[User],[Password],RolApp,Sucursal",
+                    conSQL.insertarDatos("Usuarios",
+                        "UsuarioNombre,Email,Sucursal,Pais,Ciudad,RolApp,Region,Telefono,[User],[Password]",
                         cadena);
 
                     // Insertar en la tabla Logins con el nombre del administrador
-                    string valoresLogin = "'" + txtNombreUsuario.Text + "','" + txtUsuarioAdmin.Text + "','" + txtContraseñaAdmin.Text + "','Administrador'";
-                    conSQL.insertarDatos("Logins", "Nombre,Usuario,Contraseña,Tipo_usuario", valoresLogin);
+                    //string valoresLogin = "'" + txtNombreUsuario.Text + "','" + txtUsuarioAdmin.Text + "','" + txtContraseñaAdmin.Text + "','Administrador'";
+                    //conSQL.insertarDatos("Logins", "Nombre,Usuario,Contraseña,Tipo_usuario", valoresLogin);
                     break;
 
                 case 2:
                     // Actualizar datos en la tabla Administradores
                     cadena = "UsuarioNombre='" + txtNombreUsuario.Text +
                              "', Email='" + txtEmail.Text +
-                             "', Ciudad='" + txtCiudad.Text +
-                             "', Region='" + txtRegion.Text +
+                             "', Sucursal='" + txtSucursal.Text +
                              "', Pais='" + cboxPaisUsu.Text +
+                             "', Ciudad='" + txtCiudad.Text +
+                             "', RolApp='" + cboxCargo.Text +
+                             "', Region='" + txtRegion.Text +
                              "', Telefono='" + txtTelefono.Text +
-                             "', UsuarioAdmin='" + txtUsuarioAdmin.Text +
-                             "', ContraseñaAdmin='" + txtContraseñaAdmin.Text +
-                             "', Cargo='" + cboxCargo.Text +
-                             "', Sucursal='" + txtSucursal.Text + "'";
+                             "', [User]='" + txtUsuarioUsu.Text +
+                             "', [Password]='" + txtContraseñaUsuario.Text + "'";
 
-                    conSQL.actualizarDatos("Administradores", cadena, "UsuarioID='" + txtID.Text + "'");
+                    conSQL.actualizarDatos("Usuarios", cadena, "UsuarioID='" + txtID.Text + "'");
 
                     // También actualizar la contraseña en la tabla Logins si cambió
-                    string valoresActualizarLogin = "Contraseña='" + txtContraseñaAdmin.Text + "'";
-                    conSQL.actualizarDatos("Logins", valoresActualizarLogin, "Usuario='" + txtUsuarioAdmin.Text + "'");
+                    //string valoresActualizarLogin = "Contraseña='" + txtContraseñaUsuario.Text + "'";
+                    //conSQL.actualizarDatos("Logins", valoresActualizarLogin, "Usuario='" + txtUsuarioUsu.Text + "'");
                     break;
             }
 
-            frmAdmin.dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("SELECT * FROM Administradores");
+            frmAdmin.dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("SELECT * FROM Usuarios");
             this.Close();
         }
 

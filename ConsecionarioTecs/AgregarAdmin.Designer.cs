@@ -48,9 +48,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtUsuarioAdmin = new System.Windows.Forms.TextBox();
+            this.txtUsuarioUsu = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtContraseñaAdmin = new System.Windows.Forms.TextBox();
+            this.txtContraseñaUsuario = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -296,16 +296,16 @@
             this.label8.TabIndex = 67;
             this.label8.Text = "Usuario:";
             // 
-            // txtUsuarioAdmin
+            // txtUsuarioUsu
             // 
-            this.txtUsuarioAdmin.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtUsuarioAdmin.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuarioAdmin.Location = new System.Drawing.Point(106, 330);
-            this.txtUsuarioAdmin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtUsuarioAdmin.MaxLength = 50;
-            this.txtUsuarioAdmin.Name = "txtUsuarioAdmin";
-            this.txtUsuarioAdmin.Size = new System.Drawing.Size(171, 29);
-            this.txtUsuarioAdmin.TabIndex = 10;
+            this.txtUsuarioUsu.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtUsuarioUsu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuarioUsu.Location = new System.Drawing.Point(106, 330);
+            this.txtUsuarioUsu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtUsuarioUsu.MaxLength = 50;
+            this.txtUsuarioUsu.Name = "txtUsuarioUsu";
+            this.txtUsuarioUsu.Size = new System.Drawing.Size(171, 29);
+            this.txtUsuarioUsu.TabIndex = 10;
             // 
             // label9
             // 
@@ -319,16 +319,16 @@
             this.label9.TabIndex = 69;
             this.label9.Text = "Contraseña:";
             // 
-            // txtContraseñaAdmin
+            // txtContraseñaUsuario
             // 
-            this.txtContraseñaAdmin.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtContraseñaAdmin.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseñaAdmin.Location = new System.Drawing.Point(436, 334);
-            this.txtContraseñaAdmin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtContraseñaAdmin.MaxLength = 50;
-            this.txtContraseñaAdmin.Name = "txtContraseñaAdmin";
-            this.txtContraseñaAdmin.Size = new System.Drawing.Size(191, 29);
-            this.txtContraseñaAdmin.TabIndex = 11;
+            this.txtContraseñaUsuario.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtContraseñaUsuario.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContraseñaUsuario.Location = new System.Drawing.Point(436, 334);
+            this.txtContraseñaUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtContraseñaUsuario.MaxLength = 50;
+            this.txtContraseñaUsuario.Name = "txtContraseñaUsuario";
+            this.txtContraseñaUsuario.Size = new System.Drawing.Size(191, 29);
+            this.txtContraseñaUsuario.TabIndex = 11;
             // 
             // panel2
             // 
@@ -703,9 +703,9 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.txtContraseñaAdmin);
+            this.Controls.Add(this.txtContraseñaUsuario);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtUsuarioAdmin);
+            this.Controls.Add(this.txtUsuarioUsu);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtRegion);
             this.Controls.Add(this.label11);
@@ -751,9 +751,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblIDAgg;
         private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.TextBox txtUsuarioAdmin;
+        public System.Windows.Forms.TextBox txtUsuarioUsu;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox txtContraseñaAdmin;
+        public System.Windows.Forms.TextBox txtContraseñaUsuario;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
