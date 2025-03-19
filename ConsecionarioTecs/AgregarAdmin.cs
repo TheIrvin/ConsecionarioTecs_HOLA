@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -41,10 +42,6 @@ namespace ConsecionarioTecs
                     conSQL.insertarDatos("Usuarios",
                         "UsuarioNombre,Email,Sucursal,Pais,Ciudad,RolApp,Region,Telefono,[User],[Password]",
                         cadena);
-
-                    // Insertar en la tabla Logins con el nombre del administrador
-                    //string valoresLogin = "'" + txtNombreUsuario.Text + "','" + txtUsuarioAdmin.Text + "','" + txtContraseñaAdmin.Text + "','Administrador'";
-                    //conSQL.insertarDatos("Logins", "Nombre,Usuario,Contraseña,Tipo_usuario", valoresLogin);
                     break;
 
                 case 2:
@@ -61,10 +58,6 @@ namespace ConsecionarioTecs
                              "', [Password]='" + txtContraseñaUsuario.Text + "'";
 
                     conSQL.actualizarDatos("Usuarios", cadena, "UsuarioID='" + txtID.Text + "'");
-
-                    // También actualizar la contraseña en la tabla Logins si cambió
-                    //string valoresActualizarLogin = "Contraseña='" + txtContraseñaUsuario.Text + "'";
-                    //conSQL.actualizarDatos("Logins", valoresActualizarLogin, "Usuario='" + txtUsuarioUsu.Text + "'");
                     break;
             }
 
@@ -88,9 +81,78 @@ namespace ConsecionarioTecs
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        private void txtNombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;  // Si el caracter no es una letra ni un espacio, no lo deja escribir
+            }
+        }
+
+        private void txtSucursal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCiudad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtRegion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
         private void AgregarAdmin_Load(object sender, EventArgs e)
         {
+            txtNombreUsuario.KeyPress += new KeyPressEventHandler(txtNombreUsuario_KeyPress);
+            txtSucursal.KeyPress += new KeyPressEventHandler(txtSucursal_KeyPress);
+            txtCiudad.KeyPress += new KeyPressEventHandler(txtCiudad_KeyPress);
+            txtRegion.KeyPress += new KeyPressEventHandler(txtRegion_KeyPress);
+            txtTelefono.KeyPress += new KeyPressEventHandler(txtTelefono_KeyPress);
 
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                txtEmail.BackColor = Color.White; // Restaura el color si está vacío
+                return;
+            }
+
+            // Expresión regular para validar un correo electrónico
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            if (!Regex.IsMatch(txtEmail.Text, emailPattern))
+            {
+                // Si no es válido, se pinta el campo de rosa y muestra el mensaje
+                txtEmail.BackColor = Color.LightPink;
+                MessageBox.Show("Ingrese un correo electrónico válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtEmail.Focus(); // Regresa el foco al TextBox
+            }
+            else
+            {
+                // Si es válido, se restaura el color
+                txtEmail.BackColor = Color.White;
+            }
         }
     }
 }

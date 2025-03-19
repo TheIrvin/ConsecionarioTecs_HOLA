@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FormularioDeInicio;
@@ -36,15 +37,14 @@ namespace ConsecionarioTecs
                     // Insertar en la tabla Clientes
                     cadena = "'" + txtNombreC.Text + "','" + txtCompañiaC.Text + "','" +
                              txtTituloC.Text + "','" + txtDireccionC.Text + "','" + txtCiudadC.Text + "','" + txtRegionC.Text + "','" +
-                             cboxPais.Text + "','" + txtTelefonoC.Text + "','" + txtEmailCli.Text + "','" + mFechaRegistroC.Text + "'" + cboxEstadoCli.Text + "'" + txtCedulaCli.Text + "'";
+                             cboxPais.Text + "','" + txtTelefonoC.Text + "','" + txtEmailCli.Text + "','" + mFechaRegistroC.Text + "','" +
+                             cboxEstadoCli.Text + "','" + txtCedulaCli.Text + "'";
 
+                    // Ejecutamos la consulta para insertar
                     conSQL.insertarDatos("Clientes",
                         "NombreCliente,EmpresaCliente,TituloCliente,Dirección,Ciudad,Región,País,Teléfono,Email,FechaRegistro,EstadoCliente,Cedula",
                         cadena);
 
-                    // Insertar en la tabla Logins con el nombre del cliente
-                    //string valoresLogin = "'" + txtNombreC.Text + "','" + txtEmailCli.Text + "','" + txtEmailCli.Text + "','Usuario'";
-                    //conSQL.insertarDatos("Logins", "Nombre,Usuario,Password,Tipo_usuario", valoresLogin);
                     break;
 
                 case 2:
@@ -62,23 +62,15 @@ namespace ConsecionarioTecs
                              "', EstadoCliente='" + cboxEstadoCli.Text +
                              "', Cedula='" + txtCedulaCli.Text + "'";
 
+                    // Ejecutamos la consulta para actualizar
                     conSQL.actualizarDatos("Clientes", cadena, "ClienteID='" + txtIDc.Text + "'");
 
-                    // También actualizar la contraseña en la tabla Logins si cambió
-                    //string valoresActualizarLogin = "Password='" + txtEmailCli.Text + "'";
-                    //conSQL.actualizarDatos("Logins", valoresActualizarLogin, "Usuario='" + txtUsuarioC.Text + "'");
                     break;
             }
 
+            // Actualizamos el DataGridView
             frmCliente.dtgvContenedorClientes.DataSource = conSQL.retornaRegistros("SELECT * FROM Clientes");
             this.Close();
-
-
-            //Clientes frmCs = Owner as Clientes;
-            //cadena = "'" + txtNombreC.Text + "','" + txtCompañiaC.Text + "','" + txtTituloC.Text + "','" + txtDireccionC.Text + "','" + txtCiudadC.Text + "','" + txtRegionC.Text + "','" + txtPaisC.Text + "','" + txtTelefonoC.Text + "','" + txtUsuarioC.Text + "','" + txtContraseñaC.Text + "'";
-            //ConexionClientes.insertarDatos("Clientes", "[Nombre Cliente],[Empresa Cliente],[Titulo Cliente],Dirección,Ciudad,Región,País,Teléfono,[Login Usuario],[Login Contraseña]", cadena);
-            //frmCs.dtgvContenedorClientes.DataSource = ConexionClientes.retornaRegistros("Select * from Clientes");
-            //this.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -102,9 +94,105 @@ namespace ConsecionarioTecs
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void panelModificarC_Paint(object sender, PaintEventArgs e)
+        private void txtNombreC_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;  // Si el caracter no es una letra ni un espacio, no lo deja escribir
+            }
+        }
 
+        private void txtCompañiaC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;  // Si el caracter no es una letra ni un espacio, no lo deja escribir
+            }
+        }
+
+        private void txtTituloC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;  // Si el caracter no es una letra ni un espacio, no lo deja escribir
+            }
+        }
+
+        private void txtDireccionC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtRegionC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCiudadC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefonoC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCedulaCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void frmNc_Load(object sender, EventArgs e)
+        {
+            txtNombreC.KeyPress += new KeyPressEventHandler(txtNombreC_KeyPress);
+            txtCompañiaC.KeyPress += new KeyPressEventHandler(txtCompañiaC_KeyPress);
+            txtTituloC.KeyPress += new KeyPressEventHandler(txtTituloC_KeyPress);
+            txtDireccionC.KeyPress += new KeyPressEventHandler(txtDireccionC_KeyPress);
+            txtCiudadC.KeyPress += new KeyPressEventHandler(txtCiudadC_KeyPress);
+            txtRegionC.KeyPress += new KeyPressEventHandler(txtRegionC_KeyPress);
+            txtTelefonoC.KeyPress += new KeyPressEventHandler(txtTelefonoC_KeyPress);
+            txtCedulaCli.KeyPress += new KeyPressEventHandler(txtCedulaCli_KeyPress);
+
+        }
+
+        private void txtEmailCli_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtEmailCli.Text))
+            {
+                txtEmailCli.BackColor = Color.White; // Restaura el color si está vacío
+                return;
+            }
+
+            // Expresión regular para validar un correo electrónico
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            if (!Regex.IsMatch(txtEmailCli.Text, emailPattern))
+            {
+                // Si no es válido, se pinta el campo de rosa y muestra el mensaje
+                txtEmailCli.BackColor = Color.LightPink;
+                MessageBox.Show("Ingrese un correo electrónico válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtEmailCli.Focus(); // Regresa el foco al TextBox
+            }
+            else
+            {
+                // Si es válido, se restaura el color
+                txtEmailCli.BackColor = Color.White;
+            }
         }
     }
 }

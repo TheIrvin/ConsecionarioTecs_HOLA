@@ -142,6 +142,7 @@
             this.txtID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtID.MaxLength = 5;
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(51, 25);
             this.txtID.TabIndex = 1;
             // 
@@ -155,6 +156,7 @@
             this.txtRegion.Name = "txtRegion";
             this.txtRegion.Size = new System.Drawing.Size(171, 29);
             this.txtRegion.TabIndex = 8;
+            this.txtRegion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRegion_KeyPress);
             // 
             // label11
             // 
@@ -178,6 +180,7 @@
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(171, 29);
             this.txtCiudad.TabIndex = 6;
+            this.txtCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCiudad_KeyPress);
             // 
             // txtEmail
             // 
@@ -189,6 +192,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(594, 29);
             this.txtEmail.TabIndex = 3;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtTelefono
             // 
@@ -200,6 +204,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(171, 29);
             this.txtTelefono.TabIndex = 9;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtNombreUsuario
             // 
@@ -211,6 +216,7 @@
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(594, 29);
             this.txtNombreUsuario.TabIndex = 2;
+            this.txtNombreUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreUsuario_KeyPress);
             // 
             // label7
             // 
@@ -433,6 +439,7 @@
             this.txtSucursal.Name = "txtSucursal";
             this.txtSucursal.Size = new System.Drawing.Size(594, 29);
             this.txtSucursal.TabIndex = 4;
+            this.txtSucursal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSucursal_KeyPress);
             // 
             // btnGuardarAdmin
             // 

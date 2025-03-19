@@ -104,13 +104,13 @@
             this.panelModificarC.Controls.Add(this.txtIDc);
             this.panelModificarC.Controls.Add(this.btnCerrarAggC);
             this.panelModificarC.Controls.Add(this.lblAgregarClientes);
+            this.panelModificarC.Cursor = System.Windows.Forms.Cursors.Default;
             this.panelModificarC.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelModificarC.Location = new System.Drawing.Point(0, 0);
             this.panelModificarC.Margin = new System.Windows.Forms.Padding(4);
             this.panelModificarC.Name = "panelModificarC";
             this.panelModificarC.Size = new System.Drawing.Size(714, 28);
             this.panelModificarC.TabIndex = 0;
-            this.panelModificarC.Paint += new System.Windows.Forms.PaintEventHandler(this.panelModificarC_Paint);
             this.panelModificarC.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelModificarC_MouseDown);
             // 
             // lblID
@@ -134,7 +134,6 @@
             this.lblModificarCliente.Size = new System.Drawing.Size(163, 22);
             this.lblModificarCliente.TabIndex = 34;
             this.lblModificarCliente.Text = "Modificar Clientes";
-            this.lblModificarCliente.Visible = false;
             // 
             // txtIDc
             // 
@@ -314,6 +313,7 @@
             this.txtNombreC.Name = "txtNombreC";
             this.txtNombreC.Size = new System.Drawing.Size(532, 25);
             this.txtNombreC.TabIndex = 2;
+            this.txtNombreC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreC_KeyPress);
             // 
             // txtCompañiaC
             // 
@@ -326,6 +326,7 @@
             this.txtCompañiaC.Name = "txtCompañiaC";
             this.txtCompañiaC.Size = new System.Drawing.Size(532, 25);
             this.txtCompañiaC.TabIndex = 3;
+            this.txtCompañiaC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCompañiaC_KeyPress);
             // 
             // txtTituloC
             // 
@@ -338,6 +339,7 @@
             this.txtTituloC.Name = "txtTituloC";
             this.txtTituloC.Size = new System.Drawing.Size(532, 25);
             this.txtTituloC.TabIndex = 4;
+            this.txtTituloC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTituloC_KeyPress);
             // 
             // txtDireccionC
             // 
@@ -350,6 +352,7 @@
             this.txtDireccionC.Name = "txtDireccionC";
             this.txtDireccionC.Size = new System.Drawing.Size(611, 25);
             this.txtDireccionC.TabIndex = 5;
+            this.txtDireccionC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccionC_KeyPress);
             // 
             // txtTelefonoC
             // 
@@ -362,6 +365,7 @@
             this.txtTelefonoC.Name = "txtTelefonoC";
             this.txtTelefonoC.Size = new System.Drawing.Size(134, 25);
             this.txtTelefonoC.TabIndex = 10;
+            this.txtTelefonoC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoC_KeyPress);
             // 
             // txtEmailCli
             // 
@@ -374,6 +378,7 @@
             this.txtEmailCli.Name = "txtEmailCli";
             this.txtEmailCli.Size = new System.Drawing.Size(611, 25);
             this.txtEmailCli.TabIndex = 6;
+            this.txtEmailCli.Leave += new System.EventHandler(this.txtEmailCli_Leave);
             // 
             // btnAgregarCliente
             // 
@@ -552,6 +557,7 @@
             this.txtCiudadC.Name = "txtCiudadC";
             this.txtCiudadC.Size = new System.Drawing.Size(133, 25);
             this.txtCiudadC.TabIndex = 9;
+            this.txtCiudadC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCiudadC_KeyPress);
             // 
             // txtRegionC
             // 
@@ -564,6 +570,7 @@
             this.txtRegionC.Name = "txtRegionC";
             this.txtRegionC.Size = new System.Drawing.Size(132, 25);
             this.txtRegionC.TabIndex = 8;
+            this.txtRegionC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRegionC_KeyPress);
             // 
             // label9
             // 
@@ -826,6 +833,7 @@
             this.txtCedulaCli.Name = "txtCedulaCli";
             this.txtCedulaCli.Size = new System.Drawing.Size(133, 25);
             this.txtCedulaCli.TabIndex = 11;
+            this.txtCedulaCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaCli_KeyPress);
             // 
             // label1
             // 
@@ -964,12 +972,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblaggName);
             this.Controls.Add(this.panelModificarC);
-            this.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmNc";
             this.Text = "Agregar Nuevo Cliente";
+            this.Load += new System.EventHandler(this.frmNc_Load);
             this.panelModificarC.ResumeLayout(false);
             this.panelModificarC.PerformLayout();
             this.panel2.ResumeLayout(false);

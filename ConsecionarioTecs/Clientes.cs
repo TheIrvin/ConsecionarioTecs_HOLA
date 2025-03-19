@@ -141,9 +141,5 @@ namespace FormularioDeInicio
             e.HasMorePages = Bandera < dt.Rows.Count;
         }
 
-        private void panelClientes_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

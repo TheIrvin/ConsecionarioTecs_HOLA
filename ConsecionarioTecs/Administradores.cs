@@ -103,7 +103,7 @@ namespace FormularioDeInicio
             Font fuente = new Font("Arial", 20, FontStyle.Bold);
             e.Graphics.DrawString("D'Ventas Cia Ltda", fuente, Brushes.BlueViolet, new RectangleF(300, 20, 300, 40));
             fuente = new Font("Arial", 16, FontStyle.Bold);
-            e.Graphics.DrawString("Listado de Administradores", fuente, Brushes.Red, new RectangleF(300, 70, 300, 35));
+            e.Graphics.DrawString("Listado de Usuarios", fuente, Brushes.Red, new RectangleF(300, 70, 300, 35));
             fuente = new Font("Arial", 12, FontStyle.Bold);
 
             e.Graphics.DrawString("Num.", fuente, Brushes.Black, new RectangleF(0, 140, 40, 20));
@@ -122,22 +122,22 @@ namespace FormularioDeInicio
 
             fuente = new Font("Arial", 12, FontStyle.Regular);
             Conexion_BDD sqlCon = new Conexion_BDD();
-            string cadena = "SELECT NombreAdmin, Direccion, Ciudad, Contacto, Region, Pais, Telefono, Cargo, UsuarioAdmin, ContraseñaAdmin FROM Usuarios";
+            string cadena = "SELECT UsuarioNombre, Email, Ciudad, Sucursal, Region, Pais, Telefono, RolApp, [User], [Password] FROM Usuarios";
             DataTable dt = sqlCon.retornaRegistros(cadena);
 
             for (int i = 0; Bandera < dt.Rows.Count && i < ClientexPag; i++, Bandera++)
             {
                 e.Graphics.DrawString((Bandera + 1).ToString(), fuente, Brushes.Black, new RectangleF(0, y, 40, 20));
-                e.Graphics.DrawString(dt.Rows[Bandera]["NombreAdmin"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(50, y, 150, 20));
-                e.Graphics.DrawString(dt.Rows[Bandera]["Direccion"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(210, y, 200, 20));
+                e.Graphics.DrawString(dt.Rows[Bandera]["UsuarioNombre"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(50, y, 150, 20));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Email"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(210, y, 200, 20));
                 e.Graphics.DrawString(dt.Rows[Bandera]["Ciudad"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(420, y, 120, 20));
-                e.Graphics.DrawString(dt.Rows[Bandera]["Contacto"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(550, y, 100, 20));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Sucursal"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(550, y, 100, 20));
                 e.Graphics.DrawString(dt.Rows[Bandera]["Region"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(660, y, 100, 20));
                 e.Graphics.DrawString(dt.Rows[Bandera]["Pais"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(770, y, 100, 20));
                 e.Graphics.DrawString(dt.Rows[Bandera]["Telefono"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(880, y, 120, 20));
-                e.Graphics.DrawString(dt.Rows[Bandera]["Cargo"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(1010, y, 120, 20));
-                e.Graphics.DrawString(dt.Rows[Bandera]["UsuarioAdmin"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(1140, y, 120, 20));
-                e.Graphics.DrawString(dt.Rows[Bandera]["ContraseñaAdmin"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(1270, y, 150, 20));
+                e.Graphics.DrawString(dt.Rows[Bandera]["RolApp"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(1010, y, 120, 20));
+                e.Graphics.DrawString(dt.Rows[Bandera]["[User]"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(1140, y, 120, 20));
+                e.Graphics.DrawString(dt.Rows[Bandera]["[Password]"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(1270, y, 150, 20));
 
                 y += 20;
             }
