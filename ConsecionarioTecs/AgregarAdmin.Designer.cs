@@ -122,6 +122,7 @@
             this.lblModificarUsuario.TabIndex = 31;
             this.lblModificarUsuario.Text = "Modificar Usuario";
             this.lblModificarUsuario.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblModificarUsuario.Visible = false;
             // 
             // lblIDAgg
             // 

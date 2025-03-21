@@ -18,10 +18,12 @@ namespace ConsecionarioTecs
         Conexion_BDD conSQL = new Conexion_BDD();
         string cadena;
         int tipo; //tipo=1 entonces inserto datos, tipo=2 entonces modificar datos
-        public AgregarAdmin(int t)
+        private Administradores adminForm;
+        public AgregarAdmin(int t, Administradores adminForm)
         {
             tipo = t;
             InitializeComponent();
+            this.adminForm = adminForm;
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -30,7 +32,7 @@ namespace ConsecionarioTecs
 
         private void btnGuardarAdmin_Click(object sender, EventArgs e)
         {
-            Administradores frmAdmin = Owner as Administradores;
+            //Administradores frmAdmin = Owner as Administradores;
             switch (tipo)
             {
                 case 1:
@@ -61,8 +63,36 @@ namespace ConsecionarioTecs
                     break;
             }
 
-            frmAdmin.dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("SELECT * FROM Usuarios");
-            this.Close();
+            //frmAdmin.dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("SELECT * FROM Usuarios");
+            //this.Close();
+
+            //if (this.Owner is Administradores adminForm)
+            //{
+            //    adminForm.dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("SELECT * FROM Usuarios");
+            //}
+
+            if (adminForm != null)
+            {
+                adminForm.dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("SELECT * FROM Usuarios");
+            }
+
+            LimpiarCampos();
+            MessageBox.Show("Usuario agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void LimpiarCampos()
+        {
+            txtID.Clear();
+            txtNombreUsuario.Text = "";
+            txtEmail.Text = "";
+            txtCiudad.Text = "";
+            txtSucursal.Text = "";
+            txtRegion.Text = "";
+            cboxPaisUsu.SelectedIndex = -1; // Deseleccionar opción
+            txtTelefono.Text = "";
+            cboxCargo.SelectedIndex = -1; // Deseleccionar opción
+            txtUsuarioUsu.Text = "";
+            txtContraseñaUsuario.Text = "";
         }
 
         private void btnCancelarAdmin_Click(object sender, EventArgs e)
@@ -91,7 +121,7 @@ namespace ConsecionarioTecs
 
         private void txtSucursal_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            if (!Char.IsLetterOrDigit(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }

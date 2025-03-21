@@ -18,11 +18,15 @@ namespace ConsecionarioTecs
         Conexion_BDD conSQL = new Conexion_BDD();
         string cadena;
         int tipo; //tipo=1 entonces inserto datos, tipo=2 entonces modificar datos
-        public frmNc(int t)
+        private Clientes clientesForm;
+
+        public frmNc(int t, Clientes clientesForm)
         {
             tipo = t;
             InitializeComponent();
+            this.clientesForm = clientesForm;
         }
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -30,7 +34,7 @@ namespace ConsecionarioTecs
 
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
-            Clientes frmCliente = Owner as Clientes;
+            //Clientes frmCliente = Owner as Clientes;
             switch (tipo)
             {
                 case 1:
@@ -69,8 +73,33 @@ namespace ConsecionarioTecs
             }
 
             // Actualizamos el DataGridView
-            frmCliente.dtgvContenedorClientes.DataSource = conSQL.retornaRegistros("SELECT * FROM Clientes");
-            this.Close();
+            //frmCliente.dtgvContenedorClientes.DataSource = conSQL.retornaRegistros("SELECT * FROM Clientes");
+            //this.Close();
+
+            if (clientesForm != null)
+            {
+                clientesForm.dtgvContenedorClientes.DataSource = conSQL.retornaRegistros("SELECT * FROM Clientes");
+            }
+
+            LimpiarCampos();
+            MessageBox.Show("Cliente agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void LimpiarCampos()
+        {
+            txtIDc.Clear();
+            txtNombreC.Clear();
+            txtCompañiaC.Clear();
+            txtTituloC.Clear();
+            txtDireccionC.Clear();
+            txtCiudadC.Clear();
+            txtRegionC.Clear();
+            cboxPais.SelectedIndex = -1;
+            txtTelefonoC.Clear();
+            txtEmailCli.Clear();
+            mFechaRegistroC.Clear();
+            cboxEstadoCli.SelectedIndex = -1;
+            txtCedulaCli.Clear();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -120,7 +149,7 @@ namespace ConsecionarioTecs
 
         private void txtDireccionC_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            if (!Char.IsLetterOrDigit(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.' && e.KeyChar != '-' && e.KeyChar != '#' && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }

@@ -140,11 +140,11 @@
     <Compile Include="resources\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="SoporteClientes.cs">
+    <Compile Include="SoporteEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SoporteClientes.Designer.cs">
-      <DependentUpon>SoporteClientes.cs</DependentUpon>
+    <Compile Include="SoporteEmpleados.Designer.cs">
+      <DependentUpon>SoporteEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="Administradores.cs">
       <SubType>Form</SubType>
@@ -225,8 +225,8 @@
     <EmbeddedResource Include="resources\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SoporteClientes.resx">
-      <DependentUpon>SoporteClientes.cs</DependentUpon>
+    <EmbeddedResource Include="SoporteEmpleados.resx">
+      <DependentUpon>SoporteEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administradores.resx">
       <DependentUpon>Administradores.cs</DependentUpon>

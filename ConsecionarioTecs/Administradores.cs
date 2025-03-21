@@ -18,6 +18,7 @@ namespace FormularioDeInicio
         Conexion_BDD conSQL = new Conexion_BDD();
         int Bandera = 0;
         int ClientexPag = 40;
+        private Form formActivo = null; //evitar abrir mas formularios
         public Administradores()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace FormularioDeInicio
 
         private void tstxtFiltrarAdmin_KeyUp(object sender, KeyEventArgs e)
         {
-            if (tstxtFiltrarAdmin.Text.Length > 4)
+            if (tstxtFiltrarAdmin.Text.Length > 3)
             {
                 dtgvContenedorUsuarios.DataSource = conSQL.retornaRegistros("Select * from Usuarios where UsuarioID like '%" + tstxtFiltrarAdmin.Text + "%' or UsuarioNombre like '%" + tstxtFiltrarAdmin.Text + "%'");
             }
@@ -59,32 +60,58 @@ namespace FormularioDeInicio
 
         private void tsbtnAgregarAdmin_Click(object sender, EventArgs e)
         {
-            AgregarAdmin nuevoAdmin = new AgregarAdmin(1);
-            nuevoAdmin.lblAggUsuario.Visible = true;
-            nuevoAdmin.lblModificarUsuario.Visible = false;
-            this.AddOwnedForm(nuevoAdmin);
-            nuevoAdmin.Show();
+            //AgregarAdmin nuevoAdmin = new AgregarAdmin(1);
+            //nuevoAdmin.lblAggUsuario.Visible = true;
+            //nuevoAdmin.lblModificarUsuario.Visible = false;
+            //this.AddOwnedForm(nuevoAdmin);
+            //nuevoAdmin.Show();
+            AbrirFormularioUnico(new AgregarAdmin(1, this));
+
         }
 
         private void tsBtnModificarAdmin_Click(object sender, EventArgs e)
         {
-            AgregarAdmin modiAdmin = new AgregarAdmin(2);
-            this.AddOwnedForm(modiAdmin);
-            modiAdmin.lblAggUsuario.Visible = false;
-            modiAdmin.lblModificarUsuario.Visible = true;
-            modiAdmin.txtID.Text = dtgvContenedorUsuarios[0, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtNombreUsuario.Text = dtgvContenedorUsuarios[1, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtEmail.Text = dtgvContenedorUsuarios[2, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtCiudad.Text = dtgvContenedorUsuarios[3, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtSucursal.Text = dtgvContenedorUsuarios[4, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtRegion.Text = dtgvContenedorUsuarios[5, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-            modiAdmin.cboxPaisUsu.Text = dtgvContenedorUsuarios[6, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtTelefono.Text = dtgvContenedorUsuarios[7, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-            modiAdmin.cboxCargo.Text = dtgvContenedorUsuarios[8, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtUsuarioUsu.Text = dtgvContenedorUsuarios[9, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtContraseñaUsuario.Text = dtgvContenedorUsuarios[10, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtID.Enabled = false; //puedo cambiar lo que sea, menos el código y por eso está en false
-            modiAdmin.Show();
+            if (dtgvContenedorUsuarios.RowCount > 0) // Asegurar que hay datos en la tabla
+            {
+                // Pasar datos del usuario seleccionado al formulario de modificación
+                AgregarAdmin modiAdmin = new AgregarAdmin(2, this);
+                modiAdmin.lblAggUsuario.Visible = false;
+                modiAdmin.lblModificarUsuario.Visible = true;
+                modiAdmin.txtID.Text = dtgvContenedorUsuarios[0, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.txtNombreUsuario.Text = dtgvContenedorUsuarios[1, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.txtEmail.Text = dtgvContenedorUsuarios[2, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.txtCiudad.Text = dtgvContenedorUsuarios[3, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.txtSucursal.Text = dtgvContenedorUsuarios[4, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.txtRegion.Text = dtgvContenedorUsuarios[5, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.cboxPaisUsu.Text = dtgvContenedorUsuarios[6, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.txtTelefono.Text = dtgvContenedorUsuarios[7, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.cboxCargo.Text = dtgvContenedorUsuarios[8, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.txtUsuarioUsu.Text = dtgvContenedorUsuarios[9, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.txtContraseñaUsuario.Text = dtgvContenedorUsuarios[10, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.txtID.Enabled = false; //puedo cambiar lo que sea, menos el código y por eso está en false
+
+                // Llamamos la función para abrir el formulario de Modificar
+                AbrirFormularioUnico(modiAdmin);
+            }
+
+            //AgregarAdmin modiAdmin = new AgregarAdmin(2);
+            //this.AddOwnedForm(modiAdmin);
+            //modiAdmin.lblAggUsuario.Visible = false;
+            //modiAdmin.lblModificarUsuario.Visible = true;
+            //modiAdmin.txtID.Text = dtgvContenedorUsuarios[0, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtNombreUsuario.Text = dtgvContenedorUsuarios[1, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtEmail.Text = dtgvContenedorUsuarios[2, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtCiudad.Text = dtgvContenedorUsuarios[3, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtSucursal.Text = dtgvContenedorUsuarios[4, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtRegion.Text = dtgvContenedorUsuarios[5, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+            //modiAdmin.cboxPaisUsu.Text = dtgvContenedorUsuarios[6, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtTelefono.Text = dtgvContenedorUsuarios[7, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+            //modiAdmin.cboxCargo.Text = dtgvContenedorUsuarios[8, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtUsuarioUsu.Text = dtgvContenedorUsuarios[9, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtContraseñaUsuario.Text = dtgvContenedorUsuarios[10, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtID.Enabled = false; //puedo cambiar lo que sea, menos el código y por eso está en false
+            //modiAdmin.Show();
+
         }
 
         private void tsbtnImprimirAdmin_Click(object sender, EventArgs e)
@@ -142,6 +169,21 @@ namespace FormularioDeInicio
                 y += 20;
             }
             e.HasMorePages = Bandera < dt.Rows.Count;
+        }
+
+        private void AbrirFormularioUnico(Form formHijo)
+        {
+            // Si ya hay un formulario abierto, lo cerramos antes de abrir uno nuevo
+            if (formActivo != null)
+            {
+                formActivo.Close();
+            }
+
+            formActivo = formHijo; // Asignamos el nuevo formulario
+            formHijo.FormClosed += (s, e) => formActivo = null; // Liberamos la variable cuando se cierra
+
+            formHijo.StartPosition = FormStartPosition.CenterParent; // Centrado en la pantalla
+            formHijo.ShowDialog(); // Abre el formulario como modal para evitar múltiples aperturas
         }
 
     }

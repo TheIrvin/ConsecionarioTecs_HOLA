@@ -134,6 +134,7 @@
             this.lblModificarCliente.Size = new System.Drawing.Size(163, 22);
             this.lblModificarCliente.TabIndex = 34;
             this.lblModificarCliente.Text = "Modificar Clientes";
+            this.lblModificarCliente.Visible = false;
             // 
             // txtIDc
             // 
