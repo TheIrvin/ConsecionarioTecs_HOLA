@@ -25,10 +25,10 @@ namespace ConsecionarioTecs
 
             public Conexion_BDD()
             {
-                Server = "DESKTOP-9SMDLH8\\SQLEXPRESS";
+                Server = "THEIRVIN\\SQLEXPRESS";
                 Database = "CompañiaTecsBDD";
-                Usuario = "AccesoChari";
-                Clave = "accesochari";
+                Usuario = "bbd_tecs";
+                Clave = "123456";
 
             }
 

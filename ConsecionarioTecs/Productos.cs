@@ -29,13 +29,31 @@ namespace FormularioDeInicio
 
         private void tsbtnAgregarVentas_Click(object sender, EventArgs e)
         {
+            pnl_aggMotos.Visible = true;
+            AbrirEnPanel(new AgregarMoto());
             AgregarMoto fmMoto = new AgregarMoto();
-            fmMoto.lblAggMoto.Visible = true;
-            fmMoto.lblModiMoto.Visible = false;
+            
             this.AddOwnedForm(fmMoto);
-            fmMoto.Show();
+           
         }
+        private void AbrirEnPanel(Form formNij0)
+        {
+            if (this.pnl_aggMotos.Controls.Count > 0)
+            {
+                this.pnl_aggMotos.Controls.RemoveAt(0);
+            }
 
+            Form fn = formNij0 as Form;
+            if (fn != null)
+            {
+                fn.TopLevel = false;
+                fn.FormBorderStyle = FormBorderStyle.None;
+                fn.Dock = DockStyle.Fill;
+                this.pnl_aggMotos.Controls.Add(fn);
+                this.pnl_aggMotos.Tag = fn;
+                fn.Show();
+            }
+        }
         private void tsbtnModificarVenta_Click(object sender, EventArgs e)
         {
             //if (panelSeleccionado == null)
@@ -52,8 +70,7 @@ namespace FormularioDeInicio
             //PictureBox pbMoto = panelSeleccionado.Controls.OfType<PictureBox>().FirstOrDefault();
 
             AgregarMoto fmEdiMoto = new AgregarMoto();
-            fmEdiMoto.lblAggMoto.Visible = false;
-            fmEdiMoto.lblModiMoto.Visible = true;
+           
             this.AddOwnedForm(fmEdiMoto);
             fmEdiMoto.Show();
         }

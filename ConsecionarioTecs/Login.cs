@@ -15,7 +15,7 @@ namespace ConsecionarioTecs
 {
     public partial class Login : Form
     {
-        string connectionString = "Server=DESKTOP-9SMDLH8\\SQLEXPRESS;Database=CompañiaTecsBDD;User id=AccesoChari;Password=accesochari;";
+        string connectionString = "Server=THEIRVIN\\SQLEXPRESS;Database=CompañiaTecsBDD;User id=bbd_tecs;Password=123456;";
         public Login()
         {
             InitializeComponent();

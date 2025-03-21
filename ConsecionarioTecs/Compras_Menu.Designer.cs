@@ -84,7 +84,7 @@
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.clienteToolStripMenuItem.Text = "Comprar";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 

@@ -46,8 +46,13 @@
             this.tstImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.pnl_btn_Nuevo_proveedor = new System.Windows.Forms.Panel();
+            this.pnl_EnseñarFoto_gestion_Provee = new System.Windows.Forms.Panel();
+            this.picbox_verFoto_gestio_provee = new System.Windows.Forms.PictureBox();
+            this.btn_cerrarPanel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Gestionar_Proveedor)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.pnl_EnseñarFoto_gestion_Provee.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbox_verFoto_gestio_provee)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_Gestionar_Proveedor
@@ -56,8 +61,9 @@
             this.dgv_Gestionar_Proveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Gestionar_Proveedor.Location = new System.Drawing.Point(0, 28);
             this.dgv_Gestionar_Proveedor.Name = "dgv_Gestionar_Proveedor";
-            this.dgv_Gestionar_Proveedor.Size = new System.Drawing.Size(880, 540);
+            this.dgv_Gestionar_Proveedor.Size = new System.Drawing.Size(880, 514);
             this.dgv_Gestionar_Proveedor.TabIndex = 0;
+            this.dgv_Gestionar_Proveedor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Gestionar_Proveedor_CellClick);
             this.dgv_Gestionar_Proveedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Gestionar_Proveedor_CellContentClick);
             // 
             // toolStrip1
@@ -79,7 +85,7 @@
             this.toolStripSeparator6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(864, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(880, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -183,18 +189,50 @@
             // 
             // pnl_btn_Nuevo_proveedor
             // 
-            this.pnl_btn_Nuevo_proveedor.Location = new System.Drawing.Point(0, 190);
+            this.pnl_btn_Nuevo_proveedor.Location = new System.Drawing.Point(0, 0);
             this.pnl_btn_Nuevo_proveedor.Name = "pnl_btn_Nuevo_proveedor";
-            this.pnl_btn_Nuevo_proveedor.Size = new System.Drawing.Size(864, 350);
+            this.pnl_btn_Nuevo_proveedor.Size = new System.Drawing.Size(880, 542);
             this.pnl_btn_Nuevo_proveedor.TabIndex = 2;
             this.pnl_btn_Nuevo_proveedor.Visible = false;
+            // 
+            // pnl_EnseñarFoto_gestion_Provee
+            // 
+            this.pnl_EnseñarFoto_gestion_Provee.Controls.Add(this.btn_cerrarPanel);
+            this.pnl_EnseñarFoto_gestion_Provee.Controls.Add(this.picbox_verFoto_gestio_provee);
+            this.pnl_EnseñarFoto_gestion_Provee.Location = new System.Drawing.Point(302, 147);
+            this.pnl_EnseñarFoto_gestion_Provee.Name = "pnl_EnseñarFoto_gestion_Provee";
+            this.pnl_EnseñarFoto_gestion_Provee.Size = new System.Drawing.Size(267, 221);
+            this.pnl_EnseñarFoto_gestion_Provee.TabIndex = 3;
+            this.pnl_EnseñarFoto_gestion_Provee.Visible = false;
+            // 
+            // picbox_verFoto_gestio_provee
+            // 
+            this.picbox_verFoto_gestio_provee.Location = new System.Drawing.Point(0, 0);
+            this.picbox_verFoto_gestio_provee.Name = "picbox_verFoto_gestio_provee";
+            this.picbox_verFoto_gestio_provee.Size = new System.Drawing.Size(267, 221);
+            this.picbox_verFoto_gestio_provee.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picbox_verFoto_gestio_provee.TabIndex = 0;
+            this.picbox_verFoto_gestio_provee.TabStop = false;
+            // 
+            // btn_cerrarPanel
+            // 
+            this.btn_cerrarPanel.BackColor = System.Drawing.Color.Red;
+            this.btn_cerrarPanel.Location = new System.Drawing.Point(243, 0);
+            this.btn_cerrarPanel.Name = "btn_cerrarPanel";
+            this.btn_cerrarPanel.Size = new System.Drawing.Size(24, 24);
+            this.btn_cerrarPanel.TabIndex = 1;
+            this.btn_cerrarPanel.Text = "X";
+            this.btn_cerrarPanel.UseVisualStyleBackColor = false;
+            this.btn_cerrarPanel.Visible = false;
+            this.btn_cerrarPanel.Click += new System.EventHandler(this.btn_cerrarPanel_Click);
             // 
             // Gestionar_Proveedores_DGV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 501);
+            this.ClientSize = new System.Drawing.Size(880, 540);
             this.Controls.Add(this.pnl_btn_Nuevo_proveedor);
+            this.Controls.Add(this.pnl_EnseñarFoto_gestion_Provee);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dgv_Gestionar_Proveedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -204,6 +242,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Gestionar_Proveedor)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.pnl_EnseñarFoto_gestion_Provee.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picbox_verFoto_gestio_provee)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,6 +267,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton tstImprimir;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.Panel pnl_btn_Nuevo_proveedor;
+        public System.Windows.Forms.Panel pnl_btn_Nuevo_proveedor;
+        private System.Windows.Forms.Panel pnl_EnseñarFoto_gestion_Provee;
+        private System.Windows.Forms.PictureBox picbox_verFoto_gestio_provee;
+        private System.Windows.Forms.Button btn_cerrarPanel;
     }
 }

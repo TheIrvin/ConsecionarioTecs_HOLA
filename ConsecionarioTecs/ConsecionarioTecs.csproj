@@ -156,6 +156,7 @@
     <Compile Include="Productos.Designer.cs">
       <DependentUpon>Productos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProeevInfo_MotoComp_a_Enseñar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="resources\Form1.cs">
