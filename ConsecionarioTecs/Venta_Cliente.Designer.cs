@@ -47,6 +47,8 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtBox_marcaMoto_dueñoMoto = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBox_IDpropuesta_dueñoMoto = new System.Windows.Forms.TextBox();
             this.txtBox_descripción_dueñoMoto = new System.Windows.Forms.TextBox();
@@ -71,8 +73,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.txtBox_marcaMoto_dueñoMoto = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_ventaCliente)).BeginInit();
@@ -178,7 +178,7 @@
             // 
             this.bt_enviarPropuesta_ventaCliente.BackColor = System.Drawing.Color.Black;
             this.bt_enviarPropuesta_ventaCliente.ForeColor = System.Drawing.Color.White;
-            this.bt_enviarPropuesta_ventaCliente.Location = new System.Drawing.Point(7, 426);
+            this.bt_enviarPropuesta_ventaCliente.Location = new System.Drawing.Point(7, 421);
             this.bt_enviarPropuesta_ventaCliente.Name = "bt_enviarPropuesta_ventaCliente";
             this.bt_enviarPropuesta_ventaCliente.Size = new System.Drawing.Size(132, 60);
             this.bt_enviarPropuesta_ventaCliente.TabIndex = 29;
@@ -352,6 +352,28 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Informacion del Dueño";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // txtBox_marcaMoto_dueñoMoto
+            // 
+            this.txtBox_marcaMoto_dueñoMoto.BackColor = System.Drawing.Color.White;
+            this.txtBox_marcaMoto_dueñoMoto.Font = new System.Drawing.Font("Times New Roman", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBox_marcaMoto_dueñoMoto.Location = new System.Drawing.Point(153, 209);
+            this.txtBox_marcaMoto_dueñoMoto.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBox_marcaMoto_dueñoMoto.MaxLength = 100;
+            this.txtBox_marcaMoto_dueñoMoto.Name = "txtBox_marcaMoto_dueñoMoto";
+            this.txtBox_marcaMoto_dueñoMoto.Size = new System.Drawing.Size(211, 23);
+            this.txtBox_marcaMoto_dueñoMoto.TabIndex = 53;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(9, 215);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 17);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Marca de Moto:";
             // 
             // label2
             // 
@@ -613,28 +635,6 @@
             this.label34.Size = new System.Drawing.Size(27, 26);
             this.label34.TabIndex = 3;
             this.label34.Text = "X";
-            // 
-            // txtBox_marcaMoto_dueñoMoto
-            // 
-            this.txtBox_marcaMoto_dueñoMoto.BackColor = System.Drawing.Color.White;
-            this.txtBox_marcaMoto_dueñoMoto.Font = new System.Drawing.Font("Times New Roman", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_marcaMoto_dueñoMoto.Location = new System.Drawing.Point(153, 209);
-            this.txtBox_marcaMoto_dueñoMoto.Margin = new System.Windows.Forms.Padding(2);
-            this.txtBox_marcaMoto_dueñoMoto.MaxLength = 100;
-            this.txtBox_marcaMoto_dueñoMoto.Name = "txtBox_marcaMoto_dueñoMoto";
-            this.txtBox_marcaMoto_dueñoMoto.Size = new System.Drawing.Size(211, 23);
-            this.txtBox_marcaMoto_dueñoMoto.TabIndex = 53;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 215);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 17);
-            this.label3.TabIndex = 52;
-            this.label3.Text = "Marca de Moto:";
             // 
             // Venta_Cliente
             // 
