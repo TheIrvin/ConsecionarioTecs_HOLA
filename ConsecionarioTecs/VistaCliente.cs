@@ -99,6 +99,10 @@ namespace FormularioDeInicio
             AbrirEnPanelCliente(new Venta_Cliente());
         }
 
+        private void btnSoporteE_Click(object sender, EventArgs e)
+        {
+            AbrirEnPanelCliente(new SoporteEmpleados());
+        }
         private void btnSoporteCliente_Click(object sender, EventArgs e)
         {
             AbrirEnPanelCliente(new SoporteEmpleados());

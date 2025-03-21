@@ -31,10 +31,13 @@
             this.lblSoporteEmpleados = new System.Windows.Forms.Label();
             this.panaleta2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSoporteE = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnEnviar = new System.Windows.Forms.Button();
+            this.dgvSoporteE = new System.Windows.Forms.DataGridView();
             this.panaleta2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSoporteE)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSoporteEmpleados
@@ -69,17 +72,17 @@
             this.panel1.Size = new System.Drawing.Size(5, 26);
             this.panel1.TabIndex = 5;
             // 
-            // textBox1
+            // txtSoporteE
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(8, 80);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(781, 69);
-            this.textBox1.TabIndex = 7;
+            this.txtSoporteE.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.txtSoporteE.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSoporteE.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoporteE.Location = new System.Drawing.Point(8, 80);
+            this.txtSoporteE.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSoporteE.Multiline = true;
+            this.txtSoporteE.Name = "txtSoporteE";
+            this.txtSoporteE.Size = new System.Drawing.Size(781, 69);
+            this.txtSoporteE.TabIndex = 7;
             // 
             // label1
             // 
@@ -103,21 +106,44 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Mensajes enviados y recibidos";
             // 
+            // btnEnviar
+            // 
+            this.btnEnviar.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviar.Location = new System.Drawing.Point(693, 41);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(95, 34);
+            this.btnEnviar.TabIndex = 10;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
+            // 
+            // dgvSoporteE
+            // 
+            this.dgvSoporteE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSoporteE.Location = new System.Drawing.Point(0, 209);
+            this.dgvSoporteE.Name = "dgvSoporteE";
+            this.dgvSoporteE.Size = new System.Drawing.Size(800, 239);
+            this.dgvSoporteE.TabIndex = 11;
+            // 
             // SoporteEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvSoporteE);
+            this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSoporteE);
             this.Controls.Add(this.panaleta2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SoporteEmpleados";
             this.Text = "SoporteClientes";
+            this.Load += new System.EventHandler(this.SoporteEmpleados_Load);
             this.panaleta2.ResumeLayout(false);
             this.panaleta2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSoporteE)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,8 +153,10 @@
         private System.Windows.Forms.Label lblSoporteEmpleados;
         private System.Windows.Forms.Panel panaleta2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSoporteE;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.DataGridView dgvSoporteE;
     }
 }
