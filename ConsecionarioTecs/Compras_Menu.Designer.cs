@@ -69,8 +69,8 @@
             // visualizarProveedoreToolStripMenuItem
             // 
             this.visualizarProveedoreToolStripMenuItem.Name = "visualizarProveedoreToolStripMenuItem";
-            this.visualizarProveedoreToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
-            this.visualizarProveedoreToolStripMenuItem.Text = "Agregar Proveedor";
+            this.visualizarProveedoreToolStripMenuItem.Size = new System.Drawing.Size(283, 26);
+            this.visualizarProveedoreToolStripMenuItem.Text = "Agregar Compra Proveedor";
             this.visualizarProveedoreToolStripMenuItem.Click += new System.EventHandler(this.visualizarProveedoreToolStripMenuItem_Click_1);
             // 
             // sugerenciaDeCompraToolStripMenuItem
@@ -78,13 +78,13 @@
             this.sugerenciaDeCompraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clienteToolStripMenuItem});
             this.sugerenciaDeCompraToolStripMenuItem.Name = "sugerenciaDeCompraToolStripMenuItem";
-            this.sugerenciaDeCompraToolStripMenuItem.Size = new System.Drawing.Size(241, 25);
-            this.sugerenciaDeCompraToolStripMenuItem.Text = "Compra de Motos SemiNueva";
+            this.sugerenciaDeCompraToolStripMenuItem.Size = new System.Drawing.Size(143, 25);
+            this.sugerenciaDeCompraToolStripMenuItem.Text = "Ver Proveedores";
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.clienteToolStripMenuItem.Text = "Comprar";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 

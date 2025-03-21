@@ -48,7 +48,7 @@ namespace ConsecionarioTecs
                 byte[] imagenBytes;
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    pbImagenMoto.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // Usa el formato adecuado
+                    pbImagenMoto.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); 
                     imagenBytes = ms.ToArray();
                 }
 
@@ -70,19 +70,18 @@ namespace ConsecionarioTecs
                         MessageBox.Show("Moto agregada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
+                //ARREGLAR PARA QUE SE DESABILITEN cuando se agregue una moto en AgregarMotos en el dgv
                 if (dgv_EnseñarMotos.SelectedRows.Count > 0)
                 {
                     DataGridViewRow filaSeleccionada = dgv_EnseñarMotos.SelectedRows[0];
 
-                    // Deshabilitar todas las celdas de la fila
                     foreach (DataGridViewCell celda in filaSeleccionada.Cells)
                     {
-                        celda.ReadOnly = true; // Hace que no se puedan editar
-                        celda.Style.BackColor = Color.LightGray; // Cambia el fondo
-                        celda.Style.ForeColor = Color.DarkGray; // Cambia el color del texto
+                        celda.ReadOnly = true; 
+                        celda.Style.BackColor = Color.LightGray; 
+                        celda.Style.ForeColor = Color.DarkGray;
                     }
 
-                    // Evitar que el usuario seleccione nuevamente la fila
                     filaSeleccionada.Selected = false;
                     dgv_EnseñarMotos.ClearSelection();
                     txtModelo.Text = "";
@@ -121,11 +120,9 @@ namespace ConsecionarioTecs
         {
             if (e.RowIndex >= 0 && dgv_EnseñarMotos.Columns[e.ColumnIndex].Name == "Foto_Moto")
             {
-                // Verifica si la celda contiene una imagen
                 if (e.Value is Image img)
                 {
-                    // Establece el tamaño de la imagen
-                    e.Value = AjustarIMG(img, 1, 1); // 50x50 es el tamaño que deseas para la imagen pequeña
+                    e.Value = AjustarIMG(img, 1, 1); 
                 }
             }
         }
@@ -137,17 +134,13 @@ namespace ConsecionarioTecs
         private void dgv_EnseñarMotos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            // Verifica que se haya hecho clic en una fila, no en el encabezado
             if (e.RowIndex >= 0)
             {
-                // Obtén los datos de la fila seleccionada
                 DataGridViewRow row = dgv_EnseñarMotos.Rows[e.RowIndex];
 
-                // Asigna los valores a los controles correspondientes
                 txtModelo.Text = row.Cells["Modelo_Moto"].Value.ToString();
                 txtPrecio.Text = row.Cells["Precio_Moto"].Value.ToString();
 
-                // Cargar la imagen desde la base de datos
                 byte[] imageBytes = row.Cells["Foto_Moto"].Value as byte[];
 
                 if (imageBytes != null)
@@ -176,7 +169,6 @@ namespace ConsecionarioTecs
                 }
             }
         }
-        public Panel panelContenedorMotosss;
 
         private void btn_Regresar_aggMoto_Click(object sender, EventArgs e)
         {

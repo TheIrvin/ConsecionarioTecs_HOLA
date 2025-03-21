@@ -213,6 +213,7 @@
             // 
             // FlpContenedorMotos
             // 
+            this.FlpContenedorMotos.AutoScroll = true;
             this.FlpContenedorMotos.BackColor = System.Drawing.SystemColors.ControlDark;
             this.FlpContenedorMotos.Location = new System.Drawing.Point(0, 67);
             this.FlpContenedorMotos.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);

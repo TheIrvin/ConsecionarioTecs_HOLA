@@ -32,14 +32,14 @@
             this.panelCabecerainfo = new System.Windows.Forms.Panel();
             this.btnCerrarLogin = new System.Windows.Forms.Button();
             this.lblModelo = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_MotoInfo = new System.Windows.Forms.Panel();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ptbMotos = new System.Windows.Forms.PictureBox();
+            this.lblModelo_Moto = new System.Windows.Forms.Label();
+            this.picBocMotos = new System.Windows.Forms.PictureBox();
             this.panelCabecerainfo.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMotos)).BeginInit();
+            this.pnl_MotoInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBocMotos)).BeginInit();
             this.SuspendLayout();
             // 
             // panelCabecerainfo
@@ -47,7 +47,6 @@
             this.panelCabecerainfo.BackColor = System.Drawing.SystemColors.ControlText;
             this.panelCabecerainfo.Controls.Add(this.btnCerrarLogin);
             this.panelCabecerainfo.Controls.Add(this.lblModelo);
-            this.panelCabecerainfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCabecerainfo.Location = new System.Drawing.Point(0, 0);
             this.panelCabecerainfo.Name = "panelCabecerainfo";
             this.panelCabecerainfo.Size = new System.Drawing.Size(522, 52);
@@ -78,28 +77,27 @@
             this.lblModelo.TabIndex = 1;
             this.lblModelo.Text = "Modelo Moto";
             // 
-            // panel1
+            // pnl_MotoInfo
             // 
-            this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel1.Controls.Add(this.lblDescripcion);
-            this.panel1.Controls.Add(this.lblPrecio);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.ptbMotos);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 52);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(522, 338);
-            this.panel1.TabIndex = 1;
+            this.pnl_MotoInfo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pnl_MotoInfo.Controls.Add(this.panelCabecerainfo);
+            this.pnl_MotoInfo.Controls.Add(this.lblDescripcion);
+            this.pnl_MotoInfo.Controls.Add(this.lblPrecio);
+            this.pnl_MotoInfo.Controls.Add(this.lblModelo_Moto);
+            this.pnl_MotoInfo.Controls.Add(this.picBocMotos);
+            this.pnl_MotoInfo.Location = new System.Drawing.Point(0, 0);
+            this.pnl_MotoInfo.Name = "pnl_MotoInfo";
+            this.pnl_MotoInfo.Size = new System.Drawing.Size(522, 390);
+            this.pnl_MotoInfo.TabIndex = 1;
             // 
             // lblDescripcion
             // 
-            this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.lblDescripcion.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(281, 118);
+            this.lblDescripcion.Location = new System.Drawing.Point(281, 148);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(93, 18);
+            this.lblDescripcion.Size = new System.Drawing.Size(229, 127);
             this.lblDescripcion.TabIndex = 5;
             this.lblDescripcion.Text = "Descripción";
             // 
@@ -109,50 +107,49 @@
             this.lblPrecio.BackColor = System.Drawing.Color.Transparent;
             this.lblPrecio.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecio.ForeColor = System.Drawing.Color.Gold;
-            this.lblPrecio.Location = new System.Drawing.Point(290, 62);
+            this.lblPrecio.Location = new System.Drawing.Point(280, 93);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(64, 20);
             this.lblPrecio.TabIndex = 4;
             this.lblPrecio.Text = "9000$";
             // 
-            // label1
+            // lblModelo_Moto
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(289, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 22);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Modelo Moto";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblModelo_Moto.AutoSize = true;
+            this.lblModelo_Moto.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelo_Moto.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lblModelo_Moto.Location = new System.Drawing.Point(280, 54);
+            this.lblModelo_Moto.Name = "lblModelo_Moto";
+            this.lblModelo_Moto.Size = new System.Drawing.Size(137, 22);
+            this.lblModelo_Moto.TabIndex = 3;
+            this.lblModelo_Moto.Text = "Modelo Moto";
+            this.lblModelo_Moto.Click += new System.EventHandler(this.label1_Click);
             // 
-            // ptbMotos
+            // picBocMotos
             // 
-            this.ptbMotos.Image = global::ConsecionarioTecs.Properties.Resources.MotoEjemplo;
-            this.ptbMotos.Location = new System.Drawing.Point(12, 24);
-            this.ptbMotos.Name = "ptbMotos";
-            this.ptbMotos.Size = new System.Drawing.Size(238, 278);
-            this.ptbMotos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMotos.TabIndex = 2;
-            this.ptbMotos.TabStop = false;
+            this.picBocMotos.Image = global::ConsecionarioTecs.Properties.Resources.MotoEjemplo;
+            this.picBocMotos.Location = new System.Drawing.Point(12, 54);
+            this.picBocMotos.Name = "picBocMotos";
+            this.picBocMotos.Size = new System.Drawing.Size(238, 278);
+            this.picBocMotos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBocMotos.TabIndex = 2;
+            this.picBocMotos.TabStop = false;
             // 
             // MotoInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 390);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelCabecerainfo);
+            this.Controls.Add(this.pnl_MotoInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MotoInfo";
             this.Text = "MotoInfo";
             this.panelCabecerainfo.ResumeLayout(false);
             this.panelCabecerainfo.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMotos)).EndInit();
+            this.pnl_MotoInfo.ResumeLayout(false);
+            this.pnl_MotoInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBocMotos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -160,12 +157,12 @@
         #endregion
 
         private System.Windows.Forms.Panel panelCabecerainfo;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblModelo;
-        private System.Windows.Forms.PictureBox ptbMotos;
+        private System.Windows.Forms.PictureBox picBocMotos;
         private System.Windows.Forms.Button btnCerrarLogin;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblModelo_Moto;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Label lblDescripcion;
+        public System.Windows.Forms.Panel pnl_MotoInfo;
     }
 }

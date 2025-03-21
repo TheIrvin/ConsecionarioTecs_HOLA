@@ -132,22 +132,17 @@ namespace ConsecionarioTecs
         {
 
         }
-
+        // esto solo muestra la foto del dgv en agregarMotos en el picbox que esta ahi
         private void dgv_Gestionar_Proveedor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dgv_Gestionar_Proveedor.Columns["Foto_Moto"].Index && e.RowIndex >= 0)
             {
                 byte[] imagenBytes = (byte[])dgv_Gestionar_Proveedor.Rows[e.RowIndex].Cells["Foto_Moto"].Value;
 
-                // Convierte el array de bytes a una imagen
                 using (MemoryStream ms = new MemoryStream(imagenBytes))
                 {
                     Image imagen = Image.FromStream(ms);
-
-                    // Asigna la imagen al PictureBox
                     picbox_verFoto_gestio_provee.Image = imagen;
-
-                    // Haz visible el Panel que contiene el PictureBox
                     pnl_EnseñarFoto_gestion_Provee.Visible = true;
                     btn_cerrarPanel.Visible = true;
                 }

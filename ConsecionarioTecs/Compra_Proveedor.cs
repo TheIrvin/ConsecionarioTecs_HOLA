@@ -27,7 +27,7 @@ namespace ConsecionarioTecs
         public Compra_Proveedor(int t, Gestionar_Proveedores_DGV parentForm)
         {
             tipo = t;
-            frm_gestProveedor = parentForm;  // Guardamos la referencia manualmente
+            frm_gestProveedor = parentForm;  
             InitializeComponent();
         }
         private void label5_Click(object sender, EventArgs e)
@@ -99,11 +99,10 @@ namespace ConsecionarioTecs
                 imagenMoto
             );
 
-            // ✅ Ahora usamos la referencia almacenada en `frm_gestProveedor`
             if (frm_gestProveedor != null)
             {
                 frm_gestProveedor.dgv_Gestionar_Proveedor.DataSource = conSQL.retornaRegistros("SELECT * FROM Enseñar_Motos;");
-                frm_gestProveedor.pnl_btn_Nuevo_proveedor.Visible = false; // 🔥 Oculta el panel después de la inserción
+                frm_gestProveedor.pnl_btn_Nuevo_proveedor.Visible = false;
             }
 
             this.Close();
