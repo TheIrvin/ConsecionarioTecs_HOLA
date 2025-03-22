@@ -145,5 +145,10 @@ namespace FormularioDeInicio
         {
 
         }
+
+        private void dtgvContenedorClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

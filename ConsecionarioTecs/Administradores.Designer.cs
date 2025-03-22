@@ -51,6 +51,8 @@
             this.tsbtnImprimirAdmin = new System.Windows.Forms.ToolStripButton();
             this.pdrImprimir = new System.Drawing.Printing.PrintDocument();
             this.imlImagenes = new System.Windows.Forms.ImageList(this.components);
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.panelAdmin.SuspendLayout();
             this.panelContenedorAdministradores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvContenedorUsuarios)).BeginInit();
@@ -122,7 +124,9 @@
             this.toolStripSeparator4,
             this.tsbtnEliminarAdmin,
             this.toolStripSeparator5,
-            this.tsbtnImprimirAdmin});
+            this.tsbtnImprimirAdmin,
+            this.toolStripSeparator6,
+            this.toolStripLabel2});
             this.tsAdministradores.Location = new System.Drawing.Point(0, 0);
             this.tsAdministradores.Name = "tsAdministradores";
             this.tsAdministradores.Size = new System.Drawing.Size(800, 25);
@@ -230,6 +234,18 @@
             this.imlImagenes.TransparentColor = System.Drawing.Color.Transparent;
             this.imlImagenes.Images.SetKeyName(0, "Logo_TECS.jpg");
             // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(125, 22);
+            this.toolStripLabel2.Text = "SOPORTE EMPLEADO";
+            // 
             // Administradores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,5 +291,7 @@
         public System.Windows.Forms.DataGridView dtgvContenedorUsuarios;
         private System.Drawing.Printing.PrintDocument pdrImprimir;
         private System.Windows.Forms.ImageList imlImagenes;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
     }
 }
