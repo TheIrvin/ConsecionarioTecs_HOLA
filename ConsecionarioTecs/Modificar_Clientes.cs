@@ -16,7 +16,7 @@ namespace ConsecionarioTecs
     {
         Conexion_BDD conSQL = new Conexion_BDD();
         string cadena;
-        int tipo; //tipo=1 entonces inserto datos, tipo=2 entonces modificar datos
+        int tipo; 
         public frmNc(int t)
         {
             tipo = t;
@@ -33,40 +33,29 @@ namespace ConsecionarioTecs
             switch (tipo)
             {
                 case 1:
-                    // Insertar en la tabla Clientes
-                    cadena = "'" + txtNombreC.Text + "','" + txtCompañiaC.Text + "','" +
-                             txtTituloC.Text + "','" + txtDireccionC.Text + "','" + txtCiudadC.Text + "','" + txtRegionC.Text + "','" +
-                             cboxPais.Text + "','" + txtTelefonoC.Text + "','" + txtEmailCli.Text + "','" + mFechaRegistroC.Text + "'" + cboxEstadoCli.Text + "'" + txtCedulaCli.Text + "'";
+                    cadena = "'" + txtNombreC.Text + "','" +
+                             txtTituloC.Text + "','" + txtDireccionC.Text + "','" + cboCiudadC.Text + "','"  +
+                             cboxPais.Text + "','" + txtTelefonoC.Text + "','" + txtEmailCli.Text + "','" + mFechaRegistroC.Text + "'" + txtCedulaCli.Text + "'";
 
                     conSQL.insertarDatos("Clientes",
-                        "NombreCliente,EmpresaCliente,TituloCliente,Dirección,Ciudad,Región,País,Teléfono,Email,FechaRegistro,EstadoCliente,Cedula",
+                        "NombreCliente,TituloCliente,Dirección,Ciudad,País,Teléfono,Email,FechaRegistro,Cedula",
                         cadena);
 
-                    // Insertar en la tabla Logins con el nombre del cliente
-                    //string valoresLogin = "'" + txtNombreC.Text + "','" + txtEmailCli.Text + "','" + txtEmailCli.Text + "','Usuario'";
-                    //conSQL.insertarDatos("Logins", "Nombre,Usuario,Password,Tipo_usuario", valoresLogin);
                     break;
 
                 case 2:
-                    // Actualizar datos en la tabla Clientes
                     cadena = "NombreCliente='" + txtNombreC.Text +
-                             "', EmpresaCliente='" + txtCompañiaC.Text +
                              "', TituloCliente='" + txtTituloC.Text +
                              "', Dirección='" + txtDireccionC.Text +
-                             "', Ciudad='" + txtCiudadC.Text +
-                             "', Región='" + txtRegionC.Text +
+                             "', Ciudad='" + cboCiudadC.Text +
                              "', País='" + cboxPais.Text +
                              "', Teléfono='" + txtTelefonoC.Text +
                              "', Email='" + txtEmailCli.Text +
                              "', FechaRegistro='" + mFechaRegistroC.Text +
-                             "', EstadoCliente='" + cboxEstadoCli.Text +
                              "', Cedula='" + txtCedulaCli.Text + "'";
 
                     conSQL.actualizarDatos("Clientes", cadena, "ClienteID='" + txtIDc.Text + "'");
 
-                    // También actualizar la contraseña en la tabla Logins si cambió
-                    //string valoresActualizarLogin = "Password='" + txtEmailCli.Text + "'";
-                    //conSQL.actualizarDatos("Logins", valoresActualizarLogin, "Usuario='" + txtUsuarioC.Text + "'");
                     break;
             }
 
@@ -74,11 +63,7 @@ namespace ConsecionarioTecs
             this.Close();
 
 
-            //Clientes frmCs = Owner as Clientes;
-            //cadena = "'" + txtNombreC.Text + "','" + txtCompañiaC.Text + "','" + txtTituloC.Text + "','" + txtDireccionC.Text + "','" + txtCiudadC.Text + "','" + txtRegionC.Text + "','" + txtPaisC.Text + "','" + txtTelefonoC.Text + "','" + txtUsuarioC.Text + "','" + txtContraseñaC.Text + "'";
-            //ConexionClientes.insertarDatos("Clientes", "[Nombre Cliente],[Empresa Cliente],[Titulo Cliente],Dirección,Ciudad,Región,País,Teléfono,[Login Usuario],[Login Contraseña]", cadena);
-            //frmCs.dtgvContenedorClientes.DataSource = ConexionClientes.retornaRegistros("Select * from Clientes");
-            //this.Close();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -105,6 +90,30 @@ namespace ConsecionarioTecs
         private void panelModificarC_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txtCiudadC1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIDc_TextChanged(object sender, EventArgs e)
+        {
+            string idMoto = txtIDc.Text.Trim();
+
+            if (idMoto.Length == 1)
+            {
+                ProeevInfo_MotoComp_a_Enseñar Enviar = new ProeevInfo_MotoComp_a_Enseñar(conSQL);
+
+                if (Enviar.idMotoVF(idMoto))
+                {
+                    MessageBox.Show("El ID del Cliente ya está registrado. Ingrese un ID diferente.",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    txtIDc.Focus(); 
+                    txtIDc.SelectAll(); 
+                }
+            }
         }
     }
 }

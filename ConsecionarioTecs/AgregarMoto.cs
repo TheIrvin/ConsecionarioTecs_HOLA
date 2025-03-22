@@ -16,7 +16,7 @@ namespace ConsecionarioTecs
 {
     public partial class AgregarMoto : Form
     {
-        string connectionString = "Server=THEIRVIN\\SQLEXPRESS;Database=CompañiaTecsBDD;User id=bbd_tecs;Password=123456;";
+        string conectarsql2 = "Server=THEIRVIN\\SQLEXPRESS;Database=CompañiaTecsBDD;User id=bbd_tecs;Password=123456;";
         byte[] imagenBytes = null;
         Conexion_BDD conSQL = new Conexion_BDD();
 
@@ -25,11 +25,6 @@ namespace ConsecionarioTecs
             InitializeComponent();
         }
 
-
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
         private void btnCerrarAggC_Click(object sender, EventArgs e)
         {
@@ -52,11 +47,10 @@ namespace ConsecionarioTecs
                     imagenBytes = ms.ToArray();
                 }
 
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(conectarsql2))
                 {
                     con.Open();
 
-                    // INSERTAR LA MOTO EN VentasMotos
                     string queryInsert = "INSERT INTO VentasMotos (Modelo_Moto, Descripcion, Precio, Imagen) VALUES (@Modelo, @Descripcion, @Precio, @Imagen)";
                     using (SqlCommand cmd = new SqlCommand(queryInsert, con))
                     {
@@ -67,7 +61,6 @@ namespace ConsecionarioTecs
                         cmd.ExecuteNonQuery();
                     }
 
-                    // MARCAR COMO RESERVADA EN Enseñar_Motos
                     string queryUpdate = "UPDATE Enseñar_Motos SET Reservado = 1 WHERE Modelo_Moto = @Modelo";
                     using (SqlCommand cmdUpdate = new SqlCommand(queryUpdate, con))
                     {
@@ -79,9 +72,7 @@ namespace ConsecionarioTecs
                     MessageBox.Show("Moto agregada y reservada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                // RECARGAR DATOS Y DESHABILITAR FILAS RESERVADAS
 
-                // LIMPIAR CAMPOS
                 txtModelo.Text = "";
                 txtPrecio.Text = "";
                 pbImagenMoto.Image = null;
@@ -94,7 +85,7 @@ namespace ConsecionarioTecs
         }
         private void CargarDatos()
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(conectarsql2))
             {
                 con.Open();
                 string query = "SELECT * FROM Enseñar_Motos";
@@ -108,8 +99,7 @@ namespace ConsecionarioTecs
         }
         private void panelTopaggMoto_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+           
         }
 
         private void panelTopaggMoto_Paint(object sender, PaintEventArgs e)
@@ -129,15 +119,8 @@ namespace ConsecionarioTecs
             {
                 if (fila.Cells["Reservado"].Value != DBNull.Value && Convert.ToBoolean(fila.Cells["Reservado"].Value))
                 {
-                    // 🔴 OPCIÓN 1: ROJO para indicar reservada
                     fila.DefaultCellStyle.BackColor = Color.LightCoral;
                     fila.DefaultCellStyle.ForeColor = Color.White;
-
-                    // 🔹 OPCIÓN 2: GRIS (si prefieres esta opción, descomenta y comenta la anterior)
-                    // fila.DefaultCellStyle.BackColor = Color.LightGray;
-                    // fila.DefaultCellStyle.ForeColor = Color.DarkGray;
-
-                    // 🔒 Bloquear selección y edición
                     fila.Selected = false;
                     fila.ReadOnly = true;
                     foreach (DataGridViewCell celda in fila.Cells)
@@ -150,26 +133,12 @@ namespace ConsecionarioTecs
 
 
         }
-        private void CargarMotos()
-        {
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                string query = "SELECT * FROM Enseñar_Motos WHERE Reservado = 0"; // Solo motos NO reservadas
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dgv_EnseñarMotos.DataSource = dt;
-            }
-        }
+        
         private void dgv_EnseñarMotos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             
         }
-        private Image AjustarIMG(Image img, int width, int height)
-        {
-            return new Bitmap(img, new Size(width, height));
-        }
+       
 
         private void dgv_EnseñarMotos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -178,14 +147,12 @@ namespace ConsecionarioTecs
             {
                 DataGridViewRow row = dgv_EnseñarMotos.Rows[e.RowIndex];
 
-                // Si la fila está reservada, no hacer nada y deseleccionarla
                 if (row.Cells["Reservado"].Value != DBNull.Value && Convert.ToBoolean(row.Cells["Reservado"].Value))
                 {
-                    dgv_EnseñarMotos.ClearSelection(); // Evita que quede seleccionada
+                    dgv_EnseñarMotos.ClearSelection(); 
                     return;
                 }
 
-                // Llenar los campos solo si la moto NO está reservada
                 txtModelo.Text = row.Cells["Modelo_Moto"].Value.ToString();
                 txtPrecio.Text = row.Cells["Precio_Moto"].Value.ToString();
 

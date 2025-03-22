@@ -73,18 +73,15 @@ namespace FormularioDeInicio
             modiAdmin.lblAgregarClientes.Visible = false;
             modiAdmin.lblModificarCliente.Visible = true;
             modiAdmin.txtIDc.Text = dtgvContenedorClientes[0, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtNombreC.Text = dtgvContenedorClientes[1, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtCompañiaC.Text = dtgvContenedorClientes[2, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtTituloC.Text = dtgvContenedorClientes[3, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtDireccionC.Text = dtgvContenedorClientes[4, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtCiudadC.Text = dtgvContenedorClientes[5, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtRegionC.Text = dtgvContenedorClientes[6, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.cboxPais.Text = dtgvContenedorClientes[7, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtTelefonoC.Text = dtgvContenedorClientes[8, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtEmailCli.Text = dtgvContenedorClientes[9, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.mFechaRegistroC.Text = dtgvContenedorClientes[10, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.cboxEstadoCli.Text = dtgvContenedorClientes[11, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtCedulaCli.Text = dtgvContenedorClientes[12, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            modiAdmin.txtNombreC.Text = dtgvContenedorClientes[1, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();          
+            modiAdmin.txtTituloC.Text = dtgvContenedorClientes[2, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            modiAdmin.txtDireccionC.Text = dtgvContenedorClientes[3, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            modiAdmin.cboCiudadC.Text = dtgvContenedorClientes[4, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();          
+            modiAdmin.cboxPais.Text = dtgvContenedorClientes[5, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            modiAdmin.txtTelefonoC.Text = dtgvContenedorClientes[6, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            modiAdmin.txtEmailCli.Text = dtgvContenedorClientes[7, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            modiAdmin.mFechaRegistroC.Text = dtgvContenedorClientes[8, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            modiAdmin.txtCedulaCli.Text = dtgvContenedorClientes[9, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
             modiAdmin.txtIDc.Enabled = false; //puedo cambiar lo que sea, menos el código y por eso está en false
             modiAdmin.Show();
         }
@@ -120,7 +117,7 @@ namespace FormularioDeInicio
 
             fuente = new Font("Arial", 12, FontStyle.Regular);
             Conexion_BDD sqlCon = new Conexion_BDD();
-            string cadena = "SELECT [ClienteID], [NombreCliente], [EmpresaCliente], [TituloCliente], [Dirección], [Ciudad], [Región], [País], [Teléfono] FROM Clientes";
+            string cadena = "SELECT [ClienteID], [NombreCliente], [EmpresaCliente], [TituloCliente], [Dirección], [Ciudad], [País], [Teléfono] FROM Clientes";
             DataTable dt = sqlCon.retornaRegistros(cadena);
 
             for (int i = 0; Bandera < dt.Rows.Count && i < ClientexPag; i++, Bandera++)
@@ -132,7 +129,6 @@ namespace FormularioDeInicio
                 e.Graphics.DrawString(dt.Rows[Bandera]["TituloCliente"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(394, y, 120, 20));
                 e.Graphics.DrawString(dt.Rows[Bandera]["Dirección"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(515, y, 150, 20));
                 e.Graphics.DrawString(dt.Rows[Bandera]["Ciudad"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(666, y, 100, 20));
-                e.Graphics.DrawString(dt.Rows[Bandera]["Región"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(767, y, 100, 20));
                 e.Graphics.DrawString(dt.Rows[Bandera]["País"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(868, y, 100, 20));
                 e.Graphics.DrawString(dt.Rows[Bandera]["Teléfono"].ToString().Trim(), fuente, Brushes.Black, new RectangleF(969, y, 120, 20));
 

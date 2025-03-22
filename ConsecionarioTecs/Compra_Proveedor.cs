@@ -217,19 +217,17 @@ namespace ConsecionarioTecs
         {
             string idMoto = txtBox_PVD_idMoto.Text.Trim();
 
-            // ✅ Verifica si el usuario ingresó 4 caracteres
             if (idMoto.Length == 4)
             {
                 ProeevInfo_MotoComp_a_Enseñar Enviar = new ProeevInfo_MotoComp_a_Enseñar(conSQL);
 
-                // ✅ Si el ID ya existe, muestra un mensaje
                 if (Enviar.VerificarID_Moto(idMoto))
                 {
                     MessageBox.Show("El ID de la moto ya está registrado. Ingrese un ID diferente.",
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                    txtBox_PVD_idMoto.Focus(); // 🔥 Vuelve a enfocar el TextBox
-                    txtBox_PVD_idMoto.SelectAll(); // 🔥 Selecciona el texto para que el usuario lo cambie
+                    txtBox_PVD_idMoto.Focus(); 
+                    txtBox_PVD_idMoto.SelectAll(); 
                 }
             }
         }

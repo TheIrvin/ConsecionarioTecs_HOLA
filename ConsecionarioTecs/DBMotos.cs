@@ -26,13 +26,13 @@ namespace ConsecionarioTecs
        
         public byte[] Imagen { get => imagen; set => imagen = value; }
 
-        SqlConnection conexion = new SqlConnection("Server=THEIRVIN\\SQLEXPRESS;Database=CompañiaTecsBDD;User id=bbd_tecs;Password=123456;");
+        SqlConnection conexionsql1 = new SqlConnection("Server=THEIRVIN\\SQLEXPRESS;Database=CompañiaTecsBDD;User id=bbd_tecs;Password=123456;");
 
         public void llenarBotones(FlowLayoutPanel contenedor)
         {
-            conexion.Open();
+            conexionsql1.Open();
             string transaSql = "SELECT * FROM VentasMotos";
-            SqlCommand coman = new SqlCommand(transaSql, conexion);
+            SqlCommand coman = new SqlCommand(transaSql, conexionsql1);
             coman.CommandType = CommandType.Text;
             SqlDataReader reader = coman.ExecuteReader();
 
@@ -57,7 +57,7 @@ namespace ConsecionarioTecs
 
             }
 
-            conexion.Close();
+            conexionsql1.Close();
         }
         
             

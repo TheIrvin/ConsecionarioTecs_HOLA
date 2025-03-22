@@ -16,15 +16,23 @@ namespace ConsecionarioTecs
         {
             InitializeComponent();
         }
+        Conexion_BDD conSQL = new Conexion_BDD();
 
         private void bt_evaluarMoto_ntf_clt_Click(object sender, EventArgs e)
         {
         }
         private void txtNombreC_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
-        
-      
+
+        private void notif_Clientes_Compra_Load(object sender, EventArgs e)
+        {
+
+
+            dgv_verProveedor.DataSource = conSQL.retornaRegistros(@" Select * from Proveedor_info;");
+
+            dgv_verProveedor.Refresh();
+        }
     }
 }

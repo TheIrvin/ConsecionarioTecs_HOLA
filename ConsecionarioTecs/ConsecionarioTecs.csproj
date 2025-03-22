@@ -112,11 +112,11 @@
     </Compile>
     <Compile Include="Conexion_BDD.cs" />
     <Compile Include="DBMotos.cs" />
-    <Compile Include="Estadisticas.cs">
+    <Compile Include="Reportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Estadisticas.Designer.cs">
-      <DependentUpon>Estadisticas.cs</DependentUpon>
+    <Compile Include="Reportes.Designer.cs">
+      <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
     <Compile Include="FactTarjeta.cs">
       <SubType>Form</SubType>
@@ -235,8 +235,8 @@
     <EmbeddedResource Include="Compra_Proveedor.resx">
       <DependentUpon>Compra_Proveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Estadisticas.resx">
-      <DependentUpon>Estadisticas.cs</DependentUpon>
+    <EmbeddedResource Include="Reportes.resx">
+      <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FactTarjeta.resx">
       <DependentUpon>FactTarjeta.cs</DependentUpon>
