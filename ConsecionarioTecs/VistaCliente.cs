@@ -103,10 +103,6 @@ namespace FormularioDeInicio
         {
             AbrirEnPanelCliente(new SoporteEmpleados());
         }
-        private void btnSoporteCliente_Click(object sender, EventArgs e)
-        {
-            AbrirEnPanelCliente(new SoporteEmpleados());
-        }
 
         private void AbrirEnPanelCliente(Form formClientes)
         {
