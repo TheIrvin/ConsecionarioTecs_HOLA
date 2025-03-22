@@ -100,20 +100,11 @@ namespace FormularioDeInicio
 
         }
 
-        private void PanelContenedor_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             AbrirEnPanel(new Administradores());
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            AbrirEnPanel(new Compra_Proveedor());
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -153,11 +144,6 @@ namespace FormularioDeInicio
             this.Close();
 
             Application.OpenForms["Login"].Show();
-        }
-
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -88,12 +88,6 @@
     <Compile Include="ComprasClientes.Designer.cs">
       <DependentUpon>ComprasClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compra_Proveedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compra_Proveedor.Designer.cs">
-      <DependentUpon>Compra_Proveedor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Conexion_BDD.cs" />
     <Compile Include="DBMotos.cs" />
     <Compile Include="Estadisticas.cs">
@@ -190,9 +184,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ComprasClientes.resx">
       <DependentUpon>ComprasClientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compra_Proveedor.resx">
-      <DependentUpon>Compra_Proveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Estadisticas.resx">
       <DependentUpon>Estadisticas.cs</DependentUpon>
@@ -294,6 +285,8 @@
     <Content Include="resources\MotoProductos-removebg-preview.png" />
     <None Include="resources\ojo.png" />
     <None Include="resources\ojo %281%29.png" />
+    <None Include="resources\ojo_abierto.png" />
+    <None Include="resources\ojo_cerrado.png" />
     <Content Include="resources\producto.png" />
     <Content Include="resources\reportes.png" />
     <Content Include="resources\venta.png" />

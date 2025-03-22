@@ -16,6 +16,7 @@ namespace ConsecionarioTecs
     public partial class Login : Form
     {
         string connectionString = "Server=DESKTOP-9SMDLH8\\SQLEXPRESS;Database=CompañiaTecsBDD;User id=AccesoChari;Password=accesochari;";
+        bool mostrandoContraseña = false;
         public Login()
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace ConsecionarioTecs
             {
                 txtContraseña.Text = "";
                 txtContraseña.ForeColor = Color.Black;
-                txtContraseña.UseSystemPasswordChar = true;
+                txtContraseña.UseSystemPasswordChar = !mostrandoContraseña;
             }
         }
 
@@ -60,6 +61,7 @@ namespace ConsecionarioTecs
                 txtContraseña.Text = "CONTRASEÑA";
                 txtContraseña.ForeColor = Color.Black;
                 txtContraseña.UseSystemPasswordChar = false;
+                pbVerContraseña.Image = Properties.Resources.ojo_abierto;
             }
         }
 
@@ -165,9 +167,23 @@ namespace ConsecionarioTecs
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void pbVerContraseña_Click(object sender, EventArgs e)
         {
+            if (txtContraseña.Text != "" && txtContraseña.Text != "CONTRASEÑA")
+            {
+                mostrandoContraseña = !mostrandoContraseña;
 
+                txtContraseña.UseSystemPasswordChar = !mostrandoContraseña; // Alternar estado
+
+                if (mostrandoContraseña)
+                {
+                    pbVerContraseña.Image = Properties.Resources.ojo_cerrado; // Ojo cerrado = contraseña visible
+                }
+                else
+                {
+                    pbVerContraseña.Image = Properties.Resources.ojo_abierto; // Ojo abierto = contraseña oculta
+                }
+            }
         }
     }
 }
