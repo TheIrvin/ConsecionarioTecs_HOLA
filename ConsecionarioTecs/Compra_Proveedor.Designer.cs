@@ -39,6 +39,10 @@
             this.txtBox_PVD_precioMoto = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cBox_IVA_Vender = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.upDown_PVD_Ganancia = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this.picBox_PVD_fotoMoto = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.bt_aggImagen_ventaMoto = new System.Windows.Forms.Button();
@@ -73,16 +77,12 @@
             this.txtBox_PVD_nombreEmpresa = new System.Windows.Forms.TextBox();
             this.cBox_Pais = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.upDown_PVD_Ganancia = new System.Windows.Forms.NumericUpDown();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cBox_IVA_Vender = new System.Windows.Forms.ComboBox();
             this.panaleta.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.upDown_PVD_Ganancia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_PVD_fotoMoto)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.cBox_Pais.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.upDown_PVD_Ganancia)).BeginInit();
             this.SuspendLayout();
             // 
             // panaleta
@@ -147,7 +147,7 @@
             this.txtBox_PVD_totalMotos.MaxLength = 2;
             this.txtBox_PVD_totalMotos.Name = "txtBox_PVD_totalMotos";
             this.txtBox_PVD_totalMotos.Size = new System.Drawing.Size(67, 23);
-            this.txtBox_PVD_totalMotos.TabIndex = 57;
+            this.txtBox_PVD_totalMotos.TabIndex = 17;
             this.txtBox_PVD_totalMotos.TextChanged += new System.EventHandler(this.txtBox_PVD_totalMotos_TextChanged);
             // 
             // btn_compra_Proveedor
@@ -159,7 +159,7 @@
             this.btn_compra_Proveedor.Margin = new System.Windows.Forms.Padding(2);
             this.btn_compra_Proveedor.Name = "btn_compra_Proveedor";
             this.btn_compra_Proveedor.Size = new System.Drawing.Size(130, 49);
-            this.btn_compra_Proveedor.TabIndex = 8;
+            this.btn_compra_Proveedor.TabIndex = 19;
             this.btn_compra_Proveedor.Text = "Realizar  Compra";
             this.btn_compra_Proveedor.UseVisualStyleBackColor = false;
             this.btn_compra_Proveedor.Click += new System.EventHandler(this.btn_compra_Proveedor_Click);
@@ -183,9 +183,10 @@
             this.txtBox_PVD_precioMoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 9);
             this.txtBox_PVD_precioMoto.MaxLength = 6;
             this.txtBox_PVD_precioMoto.Name = "txtBox_PVD_precioMoto";
-            this.txtBox_PVD_precioMoto.Size = new System.Drawing.Size(67, 23);
-            this.txtBox_PVD_precioMoto.TabIndex = 51;
+            this.txtBox_PVD_precioMoto.Size = new System.Drawing.Size(88, 23);
+            this.txtBox_PVD_precioMoto.TabIndex = 14;
             this.txtBox_PVD_precioMoto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBox_PVD_precioMoto_KeyPress);
+            this.txtBox_PVD_precioMoto.Leave += new System.EventHandler(this.txtBox_PVD_precioMoto_Leave);
             // 
             // label19
             // 
@@ -222,7 +223,7 @@
             this.groupBox4.Controls.Add(this.label26);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(451, 32);
+            this.groupBox4.Location = new System.Drawing.Point(465, 32);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
@@ -230,7 +231,75 @@
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Informacion de Compra";
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
+            // 
+            // cBox_IVA_Vender
+            // 
+            this.cBox_IVA_Vender.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cBox_IVA_Vender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBox_IVA_Vender.FormattingEnabled = true;
+            this.cBox_IVA_Vender.Items.AddRange(new object[] {
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"});
+            this.cBox_IVA_Vender.Location = new System.Drawing.Point(224, 210);
+            this.cBox_IVA_Vender.Name = "cBox_IVA_Vender";
+            this.cBox_IVA_Vender.Size = new System.Drawing.Size(67, 27);
+            this.cBox_IVA_Vender.TabIndex = 16;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(22, 211);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(111, 22);
+            this.label10.TabIndex = 67;
+            this.label10.Text = "IVA a Venta:";
+            // 
+            // upDown_PVD_Ganancia
+            // 
+            this.upDown_PVD_Ganancia.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upDown_PVD_Ganancia.Location = new System.Drawing.Point(224, 175);
+            this.upDown_PVD_Ganancia.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.upDown_PVD_Ganancia.Minimum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.upDown_PVD_Ganancia.Name = "upDown_PVD_Ganancia";
+            this.upDown_PVD_Ganancia.Size = new System.Drawing.Size(67, 26);
+            this.upDown_PVD_Ganancia.TabIndex = 15;
+            this.upDown_PVD_Ganancia.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(22, 179);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(141, 22);
+            this.label2.TabIndex = 64;
+            this.label2.Text = "% de Ganancia:";
             // 
             // picBox_PVD_fotoMoto
             // 
@@ -260,7 +329,7 @@
             this.bt_aggImagen_ventaMoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
             this.bt_aggImagen_ventaMoto.Name = "bt_aggImagen_ventaMoto";
             this.bt_aggImagen_ventaMoto.Size = new System.Drawing.Size(67, 24);
-            this.bt_aggImagen_ventaMoto.TabIndex = 61;
+            this.bt_aggImagen_ventaMoto.TabIndex = 18;
             this.bt_aggImagen_ventaMoto.Text = "Agregar";
             this.bt_aggImagen_ventaMoto.UseVisualStyleBackColor = true;
             this.bt_aggImagen_ventaMoto.Click += new System.EventHandler(this.bt_aggImagen_ventaMoto_Click);
@@ -274,7 +343,7 @@
             this.txtBox_PVD_añoMoto.MaxLength = 4;
             this.txtBox_PVD_añoMoto.Name = "txtBox_PVD_añoMoto";
             this.txtBox_PVD_añoMoto.Size = new System.Drawing.Size(135, 23);
-            this.txtBox_PVD_añoMoto.TabIndex = 39;
+            this.txtBox_PVD_añoMoto.TabIndex = 13;
             this.txtBox_PVD_añoMoto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBox_PVD_añoMoto_KeyPress);
             // 
             // label30
@@ -297,7 +366,7 @@
             this.txtBox_PVD_marcaMoto.MaxLength = 50;
             this.txtBox_PVD_marcaMoto.Name = "txtBox_PVD_marcaMoto";
             this.txtBox_PVD_marcaMoto.Size = new System.Drawing.Size(135, 23);
-            this.txtBox_PVD_marcaMoto.TabIndex = 36;
+            this.txtBox_PVD_marcaMoto.TabIndex = 12;
             // 
             // label28
             // 
@@ -319,7 +388,7 @@
             this.txtBox_PVD_modeloMoto.MaxLength = 100;
             this.txtBox_PVD_modeloMoto.Name = "txtBox_PVD_modeloMoto";
             this.txtBox_PVD_modeloMoto.Size = new System.Drawing.Size(135, 23);
-            this.txtBox_PVD_modeloMoto.TabIndex = 33;
+            this.txtBox_PVD_modeloMoto.TabIndex = 11;
             // 
             // txtBox_PVD_idMoto
             // 
@@ -384,11 +453,10 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(381, 467);
+            this.groupBox2.Size = new System.Drawing.Size(400, 467);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información de Proveedor";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // txtBox_PVD_codigoPostal
             // 
@@ -398,8 +466,8 @@
             this.txtBox_PVD_codigoPostal.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_PVD_codigoPostal.MaxLength = 10;
             this.txtBox_PVD_codigoPostal.Name = "txtBox_PVD_codigoPostal";
-            this.txtBox_PVD_codigoPostal.Size = new System.Drawing.Size(164, 23);
-            this.txtBox_PVD_codigoPostal.TabIndex = 80;
+            this.txtBox_PVD_codigoPostal.Size = new System.Drawing.Size(179, 23);
+            this.txtBox_PVD_codigoPostal.TabIndex = 6;
             this.txtBox_PVD_codigoPostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBox_PVD_codigoPostal_KeyPress);
             // 
             // label6
@@ -421,8 +489,8 @@
             this.txtBox_PVD_Ciudad.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_PVD_Ciudad.MaxLength = 75;
             this.txtBox_PVD_Ciudad.Name = "txtBox_PVD_Ciudad";
-            this.txtBox_PVD_Ciudad.Size = new System.Drawing.Size(165, 23);
-            this.txtBox_PVD_Ciudad.TabIndex = 78;
+            this.txtBox_PVD_Ciudad.Size = new System.Drawing.Size(179, 23);
+            this.txtBox_PVD_Ciudad.TabIndex = 4;
             this.txtBox_PVD_Ciudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBox_PVD_Ciudad_KeyPress);
             // 
             // label5
@@ -444,8 +512,8 @@
             this.txtBox_PVD_Región.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_PVD_Región.MaxLength = 75;
             this.txtBox_PVD_Región.Name = "txtBox_PVD_Región";
-            this.txtBox_PVD_Región.Size = new System.Drawing.Size(165, 23);
-            this.txtBox_PVD_Región.TabIndex = 76;
+            this.txtBox_PVD_Región.Size = new System.Drawing.Size(179, 23);
+            this.txtBox_PVD_Región.TabIndex = 5;
             this.txtBox_PVD_Región.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBox_PVD_Región_KeyPress);
             // 
             // label4
@@ -478,8 +546,8 @@
             this.txtBox_PVD_teléfono.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_PVD_teléfono.MaxLength = 10;
             this.txtBox_PVD_teléfono.Name = "txtBox_PVD_teléfono";
-            this.txtBox_PVD_teléfono.Size = new System.Drawing.Size(165, 23);
-            this.txtBox_PVD_teléfono.TabIndex = 70;
+            this.txtBox_PVD_teléfono.Size = new System.Drawing.Size(179, 23);
+            this.txtBox_PVD_teléfono.TabIndex = 9;
             this.txtBox_PVD_teléfono.TextChanged += new System.EventHandler(this.txtBox_PVD_teléfono_TextChanged);
             this.txtBox_PVD_teléfono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBox_PVD_teléfono_KeyPress);
             // 
@@ -682,8 +750,8 @@
             "Zimbabue"});
             this.cBox_País.Location = new System.Drawing.Point(206, 284);
             this.cBox_País.Name = "cBox_País";
-            this.cBox_País.Size = new System.Drawing.Size(165, 27);
-            this.cBox_País.TabIndex = 73;
+            this.cBox_País.Size = new System.Drawing.Size(179, 27);
+            this.cBox_País.TabIndex = 7;
             // 
             // txtBox_PVD_Email
             // 
@@ -693,8 +761,9 @@
             this.txtBox_PVD_Email.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_PVD_Email.MaxLength = 75;
             this.txtBox_PVD_Email.Name = "txtBox_PVD_Email";
-            this.txtBox_PVD_Email.Size = new System.Drawing.Size(164, 23);
-            this.txtBox_PVD_Email.TabIndex = 68;
+            this.txtBox_PVD_Email.Size = new System.Drawing.Size(179, 23);
+            this.txtBox_PVD_Email.TabIndex = 10;
+            this.txtBox_PVD_Email.Leave += new System.EventHandler(this.txtBox_PVD_Email_Leave);
             // 
             // txtBox_PVD_dirección
             // 
@@ -704,9 +773,9 @@
             this.txtBox_PVD_dirección.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_PVD_dirección.MaxLength = 125;
             this.txtBox_PVD_dirección.Name = "txtBox_PVD_dirección";
-            this.txtBox_PVD_dirección.Size = new System.Drawing.Size(164, 23);
-            this.txtBox_PVD_dirección.TabIndex = 57;
-            this.txtBox_PVD_dirección.Leave += new System.EventHandler(this.txtBox_PVD_dirección_Leave);
+            this.txtBox_PVD_dirección.Size = new System.Drawing.Size(179, 23);
+            this.txtBox_PVD_dirección.TabIndex = 3;
+            this.txtBox_PVD_dirección.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBox_PVD_dirección_KeyPress);
             // 
             // label8
             // 
@@ -760,8 +829,8 @@
             this.txtBox_PVD_contacto.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_PVD_contacto.MaxLength = 100;
             this.txtBox_PVD_contacto.Name = "txtBox_PVD_contacto";
-            this.txtBox_PVD_contacto.Size = new System.Drawing.Size(163, 23);
-            this.txtBox_PVD_contacto.TabIndex = 60;
+            this.txtBox_PVD_contacto.Size = new System.Drawing.Size(178, 23);
+            this.txtBox_PVD_contacto.TabIndex = 2;
             this.txtBox_PVD_contacto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBox_PVD_contacto_KeyPress);
             // 
             // txtBox_PVD_RUC
@@ -772,8 +841,8 @@
             this.txtBox_PVD_RUC.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_PVD_RUC.MaxLength = 13;
             this.txtBox_PVD_RUC.Name = "txtBox_PVD_RUC";
-            this.txtBox_PVD_RUC.Size = new System.Drawing.Size(164, 23);
-            this.txtBox_PVD_RUC.TabIndex = 54;
+            this.txtBox_PVD_RUC.Size = new System.Drawing.Size(178, 23);
+            this.txtBox_PVD_RUC.TabIndex = 8;
             this.txtBox_PVD_RUC.TextChanged += new System.EventHandler(this.txtBox_PVD_RUC_TextChanged);
             this.txtBox_PVD_RUC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBox_PVD_RUC_KeyPress);
             // 
@@ -807,10 +876,9 @@
             this.txtBox_PVD_nombreEmpresa.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_PVD_nombreEmpresa.MaxLength = 100;
             this.txtBox_PVD_nombreEmpresa.Name = "txtBox_PVD_nombreEmpresa";
-            this.txtBox_PVD_nombreEmpresa.Size = new System.Drawing.Size(163, 23);
-            this.txtBox_PVD_nombreEmpresa.TabIndex = 51;
-            this.txtBox_PVD_nombreEmpresa.Leave += new System.EventHandler(this.txtBox_PVD_nombreEmpresa_Leave);
-            this.txtBox_PVD_nombreEmpresa.Validated += new System.EventHandler(this.txtBox_PVD_nombreEmpresa_Validated);
+            this.txtBox_PVD_nombreEmpresa.Size = new System.Drawing.Size(178, 23);
+            this.txtBox_PVD_nombreEmpresa.TabIndex = 1;
+            this.txtBox_PVD_nombreEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBox_PVD_nombreEmpresa_KeyPress);
             // 
             // cBox_Pais
             // 
@@ -821,86 +889,17 @@
             this.cBox_Pais.Location = new System.Drawing.Point(0, 0);
             this.cBox_Pais.Name = "cBox_Pais";
             this.cBox_Pais.Size = new System.Drawing.Size(880, 513);
-            this.cBox_Pais.TabIndex = 8;
+            this.cBox_Pais.TabIndex = 50;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 1);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(30, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(253, 25);
+            this.label1.Size = new System.Drawing.Size(216, 24);
             this.label1.TabIndex = 28;
             this.label1.Text = "Compra a Proveedores";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 179);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 22);
-            this.label2.TabIndex = 64;
-            this.label2.Text = "% de Ganancia:";
-            // 
-            // upDown_PVD_Ganancia
-            // 
-            this.upDown_PVD_Ganancia.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.upDown_PVD_Ganancia.Location = new System.Drawing.Point(224, 175);
-            this.upDown_PVD_Ganancia.Maximum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            this.upDown_PVD_Ganancia.Minimum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.upDown_PVD_Ganancia.Name = "upDown_PVD_Ganancia";
-            this.upDown_PVD_Ganancia.Size = new System.Drawing.Size(67, 26);
-            this.upDown_PVD_Ganancia.TabIndex = 66;
-            this.upDown_PVD_Ganancia.Value = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(22, 211);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(116, 22);
-            this.label10.TabIndex = 67;
-            this.label10.Text = "IVA a Vemta:";
-            // 
-            // cBox_IVA_Vender
-            // 
-            this.cBox_IVA_Vender.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cBox_IVA_Vender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBox_IVA_Vender.FormattingEnabled = true;
-            this.cBox_IVA_Vender.Items.AddRange(new object[] {
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20"});
-            this.cBox_IVA_Vender.Location = new System.Drawing.Point(224, 210);
-            this.cBox_IVA_Vender.Name = "cBox_IVA_Vender";
-            this.cBox_IVA_Vender.Size = new System.Drawing.Size(67, 27);
-            this.cBox_IVA_Vender.TabIndex = 68;
             // 
             // Compra_Proveedor
             // 
@@ -919,12 +918,12 @@
             this.panaleta.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.upDown_PVD_Ganancia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_PVD_fotoMoto)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.cBox_Pais.ResumeLayout(false);
             this.cBox_Pais.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.upDown_PVD_Ganancia)).EndInit();
             this.ResumeLayout(false);
 
         }

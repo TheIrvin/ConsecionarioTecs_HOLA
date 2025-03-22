@@ -80,14 +80,13 @@ namespace FormularioDeInicio
                 modiAdmin.txtID.Text = dtgvContenedorUsuarios[0, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
                 modiAdmin.txtNombreUsuario.Text = dtgvContenedorUsuarios[1, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
                 modiAdmin.txtEmail.Text = dtgvContenedorUsuarios[2, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-                modiAdmin.txtCiudad.Text = dtgvContenedorUsuarios[3, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.cboxCiudad.Text = dtgvContenedorUsuarios[3, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
                 modiAdmin.txtSucursal.Text = dtgvContenedorUsuarios[4, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-                modiAdmin.txtRegion.Text = dtgvContenedorUsuarios[5, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-                modiAdmin.cboxPaisUsu.Text = dtgvContenedorUsuarios[6, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-                modiAdmin.txtTelefono.Text = dtgvContenedorUsuarios[7, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-                modiAdmin.cboxCargo.Text = dtgvContenedorUsuarios[8, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-                modiAdmin.txtUsuarioUsu.Text = dtgvContenedorUsuarios[9, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
-                modiAdmin.txtContraseñaUsuario.Text = dtgvContenedorUsuarios[10, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.cboxPaisUsu.Text = dtgvContenedorUsuarios[5, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.txtTelefono.Text = dtgvContenedorUsuarios[6, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.cboxCargo.Text = dtgvContenedorUsuarios[7, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.txtUsuarioUsu.Text = dtgvContenedorUsuarios[8, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
+                modiAdmin.txtContraseñaUsuario.Text = dtgvContenedorUsuarios[9, dtgvContenedorUsuarios.CurrentRow.Index].Value.ToString();
                 modiAdmin.txtID.Enabled = false; //puedo cambiar lo que sea, menos el código y por eso está en false
 
                 // Llamamos la función para abrir el formulario de Modificar

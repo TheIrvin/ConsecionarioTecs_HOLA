@@ -18,6 +18,7 @@ namespace FormularioDeInicio
         Conexion_BDD conSQL = new Conexion_BDD();
         int Bandera = 0;
         int ClientexPag = 40;
+        private Form formActivo = null;
         public Clientes()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace FormularioDeInicio
         {
             if (dtgvContenedorClientes.RowCount > 0)
             {
-                DialogResult opc = MessageBox.Show(this, "Se eliminará la fila " + dtgvContenedorClientes.CurrentRow.Index + ", que pertenece al administrador " + dtgvContenedorClientes[0, dtgvContenedorClientes.CurrentRow.Index].Value.ToString(), "Confirmación de Borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult opc = MessageBox.Show(this, "Se eliminará la fila " + dtgvContenedorClientes.CurrentRow.Index + ", que pertenece al cliente " + dtgvContenedorClientes[0, dtgvContenedorClientes.CurrentRow.Index].Value.ToString(), "Confirmación de Borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (opc == DialogResult.Yes)
                 {
                     conSQL.eliminarDatos("Clientes", "ClienteID='" + dtgvContenedorClientes[0, dtgvContenedorClientes.CurrentRow.Index].Value.ToString() + "'");
@@ -59,34 +60,54 @@ namespace FormularioDeInicio
 
         private void tsbtnAgregarCliente_Click(object sender, EventArgs e)
         {
-            frmNc nuevoCliente = new frmNc(1);
-            nuevoCliente.lblAgregarClientes.Visible = true;
-            nuevoCliente.lblModificarCliente.Visible = false;
-            this.AddOwnedForm(nuevoCliente);
-            nuevoCliente.Show();
+            AbrirFormularioUnico(new frmNc(1, this));
+            //frmNc nuevoCliente = new frmNc(1);
+            //nuevoCliente.lblAgregarClientes.Visible = true;
+            //nuevoCliente.lblModificarCliente.Visible = false;
+            //this.AddOwnedForm(nuevoCliente);
+            //nuevoCliente.Show();
         }
 
         private void tsBtnModificarCliente_Click(object sender, EventArgs e)
         {
-            frmNc modiAdmin = new frmNc(2);
-            this.AddOwnedForm(modiAdmin);
-            modiAdmin.lblAgregarClientes.Visible = false;
-            modiAdmin.lblModificarCliente.Visible = true;
-            modiAdmin.txtIDc.Text = dtgvContenedorClientes[0, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtNombreC.Text = dtgvContenedorClientes[1, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtCompañiaC.Text = dtgvContenedorClientes[2, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtTituloC.Text = dtgvContenedorClientes[3, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtDireccionC.Text = dtgvContenedorClientes[4, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtCiudadC.Text = dtgvContenedorClientes[5, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtRegionC.Text = dtgvContenedorClientes[6, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.cboxPais.Text = dtgvContenedorClientes[7, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtTelefonoC.Text = dtgvContenedorClientes[8, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtEmailCli.Text = dtgvContenedorClientes[9, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.mFechaRegistroC.Text = dtgvContenedorClientes[10, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.cboxEstadoCli.Text = dtgvContenedorClientes[11, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtCedulaCli.Text = dtgvContenedorClientes[12, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
-            modiAdmin.txtIDc.Enabled = false; //puedo cambiar lo que sea, menos el código y por eso está en false
-            modiAdmin.Show();
+            if (dtgvContenedorClientes.RowCount > 0)
+            {
+                frmNc modiC = new frmNc(2, this);
+                modiC.lblAgregarClientes.Visible = false;
+                modiC.lblModificarCliente.Visible = true;
+                modiC.txtIDc.Text = dtgvContenedorClientes[0, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+                modiC.txtNombreC.Text = dtgvContenedorClientes[1, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+                modiC.txtTituloC.Text = dtgvContenedorClientes[2, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+                modiC.txtDireccionC.Text = dtgvContenedorClientes[3, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+                modiC.cboxCiudad.Text = dtgvContenedorClientes[4, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+                modiC.cboxPais.Text = dtgvContenedorClientes[5, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+                modiC.txtTelefonoC.Text = dtgvContenedorClientes[6, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+                modiC.txtEmailCli.Text = dtgvContenedorClientes[7, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+                modiC.mFechaRegistroC.Text = dtgvContenedorClientes[8, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+                modiC.cboxEstadoCli.Text = dtgvContenedorClientes[9, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+                modiC.txtCedulaCli.Text = dtgvContenedorClientes[10, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+                modiC.txtIDc.Enabled = false; //puedo cambiar lo que sea, menos el código y por eso está en false
+
+                AbrirFormularioUnico(modiC);
+            }
+
+            //frmNc modiAdmin = new frmNc(2);
+            //this.AddOwnedForm(modiAdmin);
+            //modiAdmin.lblAgregarClientes.Visible = false;
+            //modiAdmin.lblModificarCliente.Visible = true;
+            //modiAdmin.txtIDc.Text = dtgvContenedorClientes[0, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtNombreC.Text = dtgvContenedorClientes[1, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtTituloC.Text = dtgvContenedorClientes[2, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtDireccionC.Text = dtgvContenedorClientes[3, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            //modiAdmin.cboxCiudad.Text = dtgvContenedorClientes[4, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            //modiAdmin.cboxPais.Text = dtgvContenedorClientes[6, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtTelefonoC.Text = dtgvContenedorClientes[7, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtEmailCli.Text = dtgvContenedorClientes[8, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            //modiAdmin.mFechaRegistroC.Text = dtgvContenedorClientes[9, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            //modiAdmin.cboxEstadoCli.Text = dtgvContenedorClientes[10, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtCedulaCli.Text = dtgvContenedorClientes[11, dtgvContenedorClientes.CurrentRow.Index].Value.ToString();
+            //modiAdmin.txtIDc.Enabled = false; //puedo cambiar lo que sea, menos el código y por eso está en false
+            //modiAdmin.Show();
         }
 
         private void tsbtnImprimir_Click(object sender, EventArgs e)
@@ -141,9 +162,19 @@ namespace FormularioDeInicio
             e.HasMorePages = Bandera < dt.Rows.Count;
         }
 
-        private void panelClientes_Paint(object sender, PaintEventArgs e)
+        private void AbrirFormularioUnico(Form formHijo)
         {
+            // Si ya hay un formulario abierto, lo cerramos antes de abrir uno nuevo
+            if (formActivo != null)
+            {
+                formActivo.Close();
+            }
 
+            formActivo = formHijo; // Asignamos el nuevo formulario
+            formHijo.FormClosed += (s, e) => formActivo = null; // Liberamos la variable cuando se cierra
+
+            formHijo.StartPosition = FormStartPosition.CenterParent; // Centrado en la pantalla
+            formHijo.ShowDialog(); // Abre el formulario como modal para evitar múltiples aperturas
         }
     }
 }

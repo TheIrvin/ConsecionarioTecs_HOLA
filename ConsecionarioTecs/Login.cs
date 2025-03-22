@@ -84,7 +84,7 @@ namespace ConsecionarioTecs
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT RolApp FROM Administradores WHERE [User] = @usuario AND [Password] = @contrasena";
+                string query = "SELECT RolApp FROM Usuarios WHERE [User] = @usuario AND [Password] = @contrasena";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@usuario", usuario);
@@ -165,11 +165,6 @@ namespace ConsecionarioTecs
         private void button1_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void pbVerContraseña_Click(object sender, EventArgs e)

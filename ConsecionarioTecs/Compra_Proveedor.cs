@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,40 +30,6 @@ namespace ConsecionarioTecs
             tipo = t;
             frm_gestProveedor = parentForm;  
             InitializeComponent();
-        }
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_compra_Proveedor_Click(object sender, EventArgs e)
@@ -129,10 +96,6 @@ namespace ConsecionarioTecs
             txtBox_PVD_totalMotos.Clear();
             picBox_PVD_fotoMoto.Image = null;
         }
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void Compra_Proveedor_Load(object sender, EventArgs e)
         {
@@ -152,17 +115,6 @@ namespace ConsecionarioTecs
 
         private void txtBox_PVD_RUC_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bt_Regresar_Click(object sender, EventArgs e)
-        {
-            this.Hide();
 
         }
 
@@ -198,7 +150,14 @@ namespace ConsecionarioTecs
 
         private void txtBox_PVD_precioMoto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            // Permitir solo números, el punto decimal y la tecla de retroceso
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+
+            // Evitar que haya más de un punto decimal
+            if (e.KeyChar == '.' && txtBox_PVD_precioMoto.Text.Contains("."))
             {
                 e.Handled = true;
             }
@@ -234,10 +193,6 @@ namespace ConsecionarioTecs
             }
         }
 
-        private void txtBox_PVD_nombreEmpresa_Validated(object sender, EventArgs e)
-        {
-           
-        }
 
         private void txtBox_PVD_contacto_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -270,16 +225,6 @@ namespace ConsecionarioTecs
             }
         }
 
-        private void txtBox_PVD_nombreEmpresa_Leave(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txtBox_PVD_dirección_Leave(object sender, EventArgs e)
-        {
-            
-        }
-
         private void txtBox_PVD_teléfono_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
@@ -293,6 +238,73 @@ namespace ConsecionarioTecs
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtBox_PVD_dirección_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetterOrDigit(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.' && e.KeyChar != '-' && e.KeyChar != '#' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBox_PVD_Email_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBox_PVD_Email.Text))
+            {
+                txtBox_PVD_Email.BackColor = Color.White; // Restaura el color si está vacío
+                return;
+            }
+
+            // Expresión regular para validar un correo electrónico
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            if (!Regex.IsMatch(txtBox_PVD_Email.Text, emailPattern))
+            {
+                // Si no es válido, se pinta el campo de rosa y muestra el mensaje
+                txtBox_PVD_Email.BackColor = Color.LightPink;
+                MessageBox.Show("Ingrese un correo electrónico válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBox_PVD_Email.Focus(); // Regresa el foco al TextBox
+            }
+            else
+            {
+                // Si es válido, se restaura el color
+                txtBox_PVD_Email.BackColor = Color.White;
+            }
+        }
+
+        private void txtBox_PVD_nombreEmpresa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;  // Si el caracter no es una letra ni un espacio, no lo deja escribir
+            }
+        }
+
+        private void txtBox_PVD_precioMoto_Leave(object sender, EventArgs e)
+        {
+            // Verificar si el campo está vacío
+            if (string.IsNullOrWhiteSpace(txtBox_PVD_precioMoto.Text))
+            {
+                MessageBox.Show("El precio no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBox_PVD_precioMoto.Focus();
+                return;
+            }
+
+            // Intentar convertir el texto a número
+            if (decimal.TryParse(txtBox_PVD_precioMoto.Text, out decimal precio))
+            {
+                // Validar el rango permitido
+                if (precio < 250 || precio > 26000)
+                {
+                    MessageBox.Show("El precio debe estar entre $250 y $26,000.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBox_PVD_precioMoto.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBox_PVD_precioMoto.Focus();
             }
         }
     }

@@ -38,8 +38,8 @@ namespace ConsecionarioTecs
                 case 1:
                     // Insertar en la tabla Usuarios
                     cadena = "'" + txtNombreUsuario.Text + "','" + txtEmail.Text + "','" +
-                             txtSucursal.Text + "','" + cboxPaisUsu.Text + "','" + txtCiudad.Text + "','" +
-                             cboxCargo.Text + "','" + txtRegion.Text + "','" + txtTelefono.Text + "','" + txtUsuarioUsu.Text + "','" + txtContraseñaUsuario.Text + "'";
+                             txtSucursal.Text + "','" + cboxPaisUsu.Text + "','" + cboxCiudad.Text + "','" +
+                             cboxCargo.Text + "','" + txtTelefono.Text + "','" + txtUsuarioUsu.Text + "','" + txtContraseñaUsuario.Text + "'";
 
                     conSQL.insertarDatos("Usuarios",
                         "UsuarioNombre,Email,Sucursal,Pais,Ciudad,RolApp,Region,Telefono,[User],[Password]",
@@ -47,14 +47,13 @@ namespace ConsecionarioTecs
                     break;
 
                 case 2:
-                    // Actualizar datos en la tabla Administradores
+                    // Actualizar datos en la tabla Usuarios
                     cadena = "UsuarioNombre='" + txtNombreUsuario.Text +
                              "', Email='" + txtEmail.Text +
                              "', Sucursal='" + txtSucursal.Text +
                              "', Pais='" + cboxPaisUsu.Text +
-                             "', Ciudad='" + txtCiudad.Text +
+                             "', Ciudad='" + cboxCiudad.Text +
                              "', RolApp='" + cboxCargo.Text +
-                             "', Region='" + txtRegion.Text +
                              "', Telefono='" + txtTelefono.Text +
                              "', [User]='" + txtUsuarioUsu.Text +
                              "', [Password]='" + txtContraseñaUsuario.Text + "'";
@@ -85,9 +84,8 @@ namespace ConsecionarioTecs
             txtID.Clear();
             txtNombreUsuario.Text = "";
             txtEmail.Text = "";
-            txtCiudad.Text = "";
+            cboxCiudad.SelectedIndex = -1;
             txtSucursal.Text = "";
-            txtRegion.Text = "";
             cboxPaisUsu.SelectedIndex = -1; // Deseleccionar opción
             txtTelefono.Text = "";
             cboxCargo.SelectedIndex = -1; // Deseleccionar opción
@@ -127,14 +125,6 @@ namespace ConsecionarioTecs
             }
         }
 
-        private void txtCiudad_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsLetter(e.KeyChar) && !Char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true;
-            }
-        }
-
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -147,7 +137,6 @@ namespace ConsecionarioTecs
         {
             txtNombreUsuario.KeyPress += new KeyPressEventHandler(txtNombreUsuario_KeyPress);
             txtSucursal.KeyPress += new KeyPressEventHandler(txtSucursal_KeyPress);
-            txtCiudad.KeyPress += new KeyPressEventHandler(txtCiudad_KeyPress);
             txtTelefono.KeyPress += new KeyPressEventHandler(txtTelefono_KeyPress);
         }
 
