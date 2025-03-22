@@ -91,7 +91,7 @@ namespace FormularioDeInicio
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AbrirEnPanel(new Estadisticas());
+            AbrirEnPanel(new Reportes());
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

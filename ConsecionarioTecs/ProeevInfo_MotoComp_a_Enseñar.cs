@@ -20,6 +20,16 @@ namespace ConsecionarioTecs
         {
             this.conSQL = conexion;
         }
+        public bool idMotoVF(string idMoto)
+        {
+            string query = "SELECT COUNT(*) FROM Clientes WHERE ClienteID = @ClienteID";
+            using (SqlCommand cmd = new SqlCommand(query, conSQL.llevarConexion()))
+            {
+                cmd.Parameters.AddWithValue("@ClienteID", idMoto);
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count > 0;
+            }
+        }
         public bool VerificarID_Moto(string idMoto)
         {
             string query = "SELECT COUNT(*) FROM Moto_Compra WHERE ID_Moto = @ID_Moto";

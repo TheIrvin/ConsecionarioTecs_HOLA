@@ -34,10 +34,8 @@ namespace ConsecionarioTecs
         {
             pnl_btn_Nuevo_proveedor.Visible = true;
 
-            // ✅ Pasamos "this" como referencia del formulario principal
             Compra_Proveedor C_Proveedor = new Compra_Proveedor(1, this);
 
-            // ✅ Llamamos al método que abre en el panel
             AbrirEnPanelProveedor(C_Proveedor);
 
         }
@@ -132,7 +130,6 @@ namespace ConsecionarioTecs
         {
 
         }
-        // esto solo muestra la foto del dgv en agregarMotos en el picbox que esta ahi
         private void dgv_Gestionar_Proveedor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dgv_Gestionar_Proveedor.Columns["Foto_Moto"].Index && e.RowIndex >= 0)

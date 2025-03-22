@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblxSoporteClientes = new System.Windows.Forms.Label();
             this.lblSoporteClientes = new System.Windows.Forms.Label();
             this.panaleta2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -36,23 +35,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnEnviarReporte = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panaleta2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblxSoporteClientes
-            // 
-            this.lblxSoporteClientes.AutoSize = true;
-            this.lblxSoporteClientes.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblxSoporteClientes.Location = new System.Drawing.Point(771, 0);
-            this.lblxSoporteClientes.Name = "lblxSoporteClientes";
-            this.lblxSoporteClientes.Size = new System.Drawing.Size(27, 26);
-            this.lblxSoporteClientes.TabIndex = 4;
-            this.lblxSoporteClientes.Text = "X";
-            this.lblxSoporteClientes.Click += new System.EventHandler(this.lblxSoporteClientes_Click);
             // 
             // lblSoporteClientes
             // 
@@ -70,11 +58,10 @@
             // 
             this.panaleta2.BackColor = System.Drawing.SystemColors.ControlText;
             this.panaleta2.Controls.Add(this.panel1);
-            this.panaleta2.Controls.Add(this.lblxSoporteClientes);
             this.panaleta2.Controls.Add(this.lblSoporteClientes);
             this.panaleta2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panaleta2.Location = new System.Drawing.Point(0, 0);
-            this.panaleta2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panaleta2.Margin = new System.Windows.Forms.Padding(2);
             this.panaleta2.Name = "panaleta2";
             this.panaleta2.Size = new System.Drawing.Size(800, 28);
             this.panaleta2.TabIndex = 6;
@@ -92,7 +79,7 @@
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.textBox1.Location = new System.Drawing.Point(43, 91);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(542, 332);
@@ -116,7 +103,7 @@
             this.btnEnviarReporte.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnviarReporte.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEnviarReporte.Location = new System.Drawing.Point(32, 169);
-            this.btnEnviarReporte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEnviarReporte.Margin = new System.Windows.Forms.Padding(2);
             this.btnEnviarReporte.Name = "btnEnviarReporte";
             this.btnEnviarReporte.Size = new System.Drawing.Size(118, 142);
             this.btnEnviarReporte.TabIndex = 9;
@@ -131,18 +118,10 @@
             this.panel2.Controls.Add(this.btnEnviarReporte);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(621, 28);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(179, 422);
             this.panel2.TabIndex = 10;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel3.Location = new System.Drawing.Point(0, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(5, 26);
-            this.panel3.TabIndex = 5;
             // 
             // pictureBox1
             // 
@@ -154,6 +133,14 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panel3.Location = new System.Drawing.Point(0, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(5, 26);
+            this.panel3.TabIndex = 5;
             // 
             // SoporteClientes
             // 
@@ -178,8 +165,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblxSoporteClientes;
         private System.Windows.Forms.Label lblSoporteClientes;
         private System.Windows.Forms.Panel panaleta2;
         private System.Windows.Forms.Panel panel1;

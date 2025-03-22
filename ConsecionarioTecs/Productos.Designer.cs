@@ -48,13 +48,17 @@
             this.panelContenedorMotosss = new System.Windows.Forms.Panel();
             this.pnl_aggMotos = new System.Windows.Forms.Panel();
             this.FlpContenedorMotos = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnl_verFac = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tstGestiondeVentas.SuspendLayout();
             this.panelContenedorMotosss.SuspendLayout();
+            this.pnl_aggMotos.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.lblGMotos);
@@ -192,6 +196,9 @@
             // 
             // panelContenedorMotosss
             // 
+            this.panelContenedorMotosss.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContenedorMotosss.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panelContenedorMotosss.Controls.Add(this.pnl_aggMotos);
             this.panelContenedorMotosss.Controls.Add(this.FlpContenedorMotos);
@@ -204,7 +211,11 @@
             // 
             // pnl_aggMotos
             // 
+            this.pnl_aggMotos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_aggMotos.BackColor = System.Drawing.SystemColors.Highlight;
+            this.pnl_aggMotos.Controls.Add(this.pnl_verFac);
             this.pnl_aggMotos.Location = new System.Drawing.Point(0, 0);
             this.pnl_aggMotos.Name = "pnl_aggMotos";
             this.pnl_aggMotos.Size = new System.Drawing.Size(880, 540);
@@ -213,6 +224,9 @@
             // 
             // FlpContenedorMotos
             // 
+            this.FlpContenedorMotos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.FlpContenedorMotos.AutoScroll = true;
             this.FlpContenedorMotos.BackColor = System.Drawing.SystemColors.ControlDark;
             this.FlpContenedorMotos.Location = new System.Drawing.Point(0, 67);
@@ -220,6 +234,18 @@
             this.FlpContenedorMotos.Name = "FlpContenedorMotos";
             this.FlpContenedorMotos.Size = new System.Drawing.Size(880, 473);
             this.FlpContenedorMotos.TabIndex = 0;
+            // 
+            // pnl_verFac
+            // 
+            this.pnl_verFac.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_verFac.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.pnl_verFac.Location = new System.Drawing.Point(0, 0);
+            this.pnl_verFac.Name = "pnl_verFac";
+            this.pnl_verFac.Size = new System.Drawing.Size(880, 540);
+            this.pnl_verFac.TabIndex = 10;
+            this.pnl_verFac.Visible = false;
             // 
             // Productos
             // 
@@ -235,6 +261,7 @@
             this.tstGestiondeVentas.ResumeLayout(false);
             this.tstGestiondeVentas.PerformLayout();
             this.panelContenedorMotosss.ResumeLayout(false);
+            this.pnl_aggMotos.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -260,5 +287,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblGMotos;
         public System.Windows.Forms.Panel pnl_aggMotos;
+        public System.Windows.Forms.Panel pnl_verFac;
     }
 }

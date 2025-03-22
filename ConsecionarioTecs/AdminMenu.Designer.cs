@@ -355,7 +355,7 @@
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(220, 50);
             this.btnEstadisticas.TabIndex = 1;
-            this.btnEstadisticas.Text = "    Estadísticas";
+            this.btnEstadisticas.Text = "    Reportes";
             this.btnEstadisticas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEstadisticas.UseVisualStyleBackColor = true;
             this.btnEstadisticas.Click += new System.EventHandler(this.button1_Click);

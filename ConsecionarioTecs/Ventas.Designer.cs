@@ -224,6 +224,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panelContenedorVentas);
             this.Controls.Add(this.panelVentas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Ventas";
             this.Text = "Ventas";
             this.panelVentas.ResumeLayout(false);

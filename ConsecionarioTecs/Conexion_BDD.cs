@@ -82,12 +82,11 @@ namespace ConsecionarioTecs
             SqlConnection oCon = new SqlConnection();
             try
             {
-                // Definir la cadena de conexión
                 Cadena = "Server=" + Server + "; Database=" + Database + "; User id=" + Usuario.Trim() + "; Password=" + Clave;
                 oCon.ConnectionString = Cadena;
-                oCon.Open();  // Intentar abrir la conexión
+                oCon.Open();  
 
-                return oCon;  // Si se abre correctamente, devolver la conexión
+                return oCon;  
             }
             catch (Exception ex)
             {
@@ -98,18 +97,17 @@ namespace ConsecionarioTecs
         {
             try
             {
-                // Asegurarse de que la conexión esté abierta
                 using (SqlConnection con = llevarConexion())
                 {
-                    cmd.Connection = con;  // Asignar la conexión al comando
-                    cmd.ExecuteNonQuery(); // Ejecutar el comando (sin devolver resultados)
+                    cmd.Connection = con;  
+                    cmd.ExecuteNonQuery(); 
                 }
-                return true;  // Si la ejecución es exitosa, devolver true
+                return true;  
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error al ejecutar el comando: " + ex.Message);
-                return false;  // Si ocurre un error, devolver false
+                return false;  
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsecionarioTecs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,12 +11,13 @@ using System.Windows.Forms;
 
 namespace FormularioDeInicio
 {
-    public partial class Estadisticas : Form
+    public partial class Reportes : Form
     {
-        public Estadisticas()
+        public Reportes()
         {
             InitializeComponent();
         }
+        Conexion_BDD conSQL = new Conexion_BDD();
 
         private void lblEstadisticas1_Click(object sender, EventArgs e)
         {
@@ -29,7 +31,10 @@ namespace FormularioDeInicio
 
         private void Estadisticas_Load(object sender, EventArgs e)
         {
-            
+            dgv_enseñarVentas.DataSource = conSQL.retornaRegistros(@" Select * from Motos_Vendidas;");
+
+            dgv_enseñarVentas.Refresh();
+
         }
     }
 }

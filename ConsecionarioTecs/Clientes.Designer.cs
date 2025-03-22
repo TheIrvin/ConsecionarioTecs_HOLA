@@ -213,6 +213,7 @@
             this.dtgvContenedorClientes.Name = "dtgvContenedorClientes";
             this.dtgvContenedorClientes.Size = new System.Drawing.Size(800, 390);
             this.dtgvContenedorClientes.TabIndex = 1;
+            this.dtgvContenedorClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvContenedorClientes_CellContentClick);
             // 
             // panelContenedorCliente
             // 
