@@ -335,6 +335,8 @@
     <Content Include="resources\MotoProductos-removebg-preview.png" />
     <None Include="resources\ojo.png" />
     <None Include="resources\ojo %281%29.png" />
+    <None Include="resources\ojo_cerrado.png" />
+    <None Include="resources\ojo_abierto.png" />
     <Content Include="resources\producto.png" />
     <Content Include="resources\reportes.png" />
     <Content Include="resources\venta.png" />
