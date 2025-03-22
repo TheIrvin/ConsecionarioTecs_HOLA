@@ -60,5 +60,10 @@ namespace ConsecionarioTecs
         {
 
         }
+
+        private void btnComprar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

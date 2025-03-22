@@ -69,8 +69,8 @@
             // visualizarProveedoreToolStripMenuItem
             // 
             this.visualizarProveedoreToolStripMenuItem.Name = "visualizarProveedoreToolStripMenuItem";
-            this.visualizarProveedoreToolStripMenuItem.Size = new System.Drawing.Size(283, 26);
-            this.visualizarProveedoreToolStripMenuItem.Text = "Agregar Compra Proveedor";
+            this.visualizarProveedoreToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
+            this.visualizarProveedoreToolStripMenuItem.Text = " Comprar a Proveedor";
             this.visualizarProveedoreToolStripMenuItem.Click += new System.EventHandler(this.visualizarProveedoreToolStripMenuItem_Click_1);
             // 
             // sugerenciaDeCompraToolStripMenuItem
@@ -84,7 +84,7 @@
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.clienteToolStripMenuItem.Text = "Comprar";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 

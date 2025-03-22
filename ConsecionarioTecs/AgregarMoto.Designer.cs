@@ -32,7 +32,22 @@
             this.panelTopaggMoto = new System.Windows.Forms.Panel();
             this.lblGMotos = new System.Windows.Forms.Label();
             this.panelCentroMotos = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.dgv_EnseñarMotos = new System.Windows.Forms.DataGridView();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.tstFiltro = new System.Windows.Forms.ToolStripTextBox();
+            this.tsbFiltro = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbModificar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.tstImprimir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAgregarMoto = new System.Windows.Forms.Button();
             this.pbImagenMoto = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -52,31 +67,16 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblaggNameMoto = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.tstFiltro = new System.Windows.Forms.ToolStripTextBox();
-            this.tsbFiltro = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbModificar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.tstImprimir = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelTopaggMoto.SuspendLayout();
             this.panelCentroMotos.SuspendLayout();
+            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_EnseñarMotos)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenMoto)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTopaggMoto
@@ -127,11 +127,38 @@
             this.panelCentroMotos.Size = new System.Drawing.Size(880, 586);
             this.panelCentroMotos.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(318, 228);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 22);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "SI";
+            // 
+            // panel9
+            // 
+            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel9.Controls.Add(this.dgv_EnseñarMotos);
+            this.panel9.Controls.Add(this.toolStrip1);
+            this.panel9.Location = new System.Drawing.Point(386, 78);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(490, 402);
+            this.panel9.TabIndex = 55;
+            // 
             // dgv_EnseñarMotos
             // 
             this.dgv_EnseñarMotos.AllowUserToAddRows = false;
             this.dgv_EnseñarMotos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv_EnseñarMotos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_EnseñarMotos.ColumnHeadersHeight = 36;
+            this.dgv_EnseñarMotos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_EnseñarMotos.Location = new System.Drawing.Point(0, 33);
             this.dgv_EnseñarMotos.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.dgv_EnseñarMotos.Name = "dgv_EnseñarMotos";
@@ -140,6 +167,113 @@
             this.dgv_EnseñarMotos.TabIndex = 53;
             this.dgv_EnseñarMotos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_EnseñarMotos_CellClick);
             this.dgv_EnseñarMotos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_EnseñarMotos_CellFormatting);
+            this.dgv_EnseñarMotos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_EnseñarMotos_CellValueChanged);
+            this.dgv_EnseñarMotos.SelectionChanged += new System.EventHandler(this.dgv_EnseñarMotos_SelectionChanged);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.AutoSize = false;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.tstFiltro,
+            this.tsbFiltro,
+            this.toolStripSeparator1,
+            this.toolStripLabel2,
+            this.toolStripSeparator2,
+            this.tsbNuevo,
+            this.toolStripSeparator3,
+            this.tsbModificar,
+            this.toolStripSeparator4,
+            this.tstImprimir,
+            this.toolStripSeparator6});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 1);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(490, 32);
+            this.toolStrip1.TabIndex = 54;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(40, 29);
+            this.toolStripLabel1.Text = "Filtrar:";
+            // 
+            // tstFiltro
+            // 
+            this.tstFiltro.AutoSize = false;
+            this.tstFiltro.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tstFiltro.MaxLength = 40;
+            this.tstFiltro.Name = "tstFiltro";
+            this.tstFiltro.Size = new System.Drawing.Size(85, 25);
+            // 
+            // tsbFiltro
+            // 
+            this.tsbFiltro.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbFiltro.Image = ((System.Drawing.Image)(resources.GetObject("tsbFiltro.Image")));
+            this.tsbFiltro.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbFiltro.Name = "tsbFiltro";
+            this.tsbFiltro.Size = new System.Drawing.Size(23, 29);
+            this.tsbFiltro.Text = "toolStripButton1";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 32);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(61, 29);
+            this.toolStripLabel2.Text = "Acciones: ";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 32);
+            // 
+            // tsbNuevo
+            // 
+            this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
+            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNuevo.Name = "tsbNuevo";
+            this.tsbNuevo.Size = new System.Drawing.Size(62, 29);
+            this.tsbNuevo.Text = "Nuevo";
+            this.tsbNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 32);
+            // 
+            // tsbModificar
+            // 
+            this.tsbModificar.Image = ((System.Drawing.Image)(resources.GetObject("tsbModificar.Image")));
+            this.tsbModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbModificar.Name = "tsbModificar";
+            this.tsbModificar.Size = new System.Drawing.Size(78, 29);
+            this.tsbModificar.Text = "Modificar";
+            this.tsbModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 32);
+            // 
+            // tstImprimir
+            // 
+            this.tstImprimir.Image = ((System.Drawing.Image)(resources.GetObject("tstImprimir.Image")));
+            this.tstImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tstImprimir.Name = "tstImprimir";
+            this.tstImprimir.Size = new System.Drawing.Size(73, 29);
+            this.tstImprimir.Text = "Imprimir";
+            this.tstImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.tstImprimir.ToolTipText = "Imprimir Listado de Clientes";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 32);
             // 
             // btnAgregarMoto
             // 
@@ -357,137 +491,6 @@
             this.lblaggNameMoto.TabIndex = 36;
             this.lblaggNameMoto.Text = "Modelo:";
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.tstFiltro,
-            this.tsbFiltro,
-            this.toolStripSeparator1,
-            this.toolStripLabel2,
-            this.toolStripSeparator2,
-            this.tsbNuevo,
-            this.toolStripSeparator3,
-            this.tsbModificar,
-            this.toolStripSeparator4,
-            this.tstImprimir,
-            this.toolStripSeparator6});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 1);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(490, 32);
-            this.toolStrip1.TabIndex = 54;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(40, 29);
-            this.toolStripLabel1.Text = "Filtrar:";
-            // 
-            // tstFiltro
-            // 
-            this.tstFiltro.AutoSize = false;
-            this.tstFiltro.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tstFiltro.MaxLength = 40;
-            this.tstFiltro.Name = "tstFiltro";
-            this.tstFiltro.Size = new System.Drawing.Size(85, 25);
-            // 
-            // tsbFiltro
-            // 
-            this.tsbFiltro.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbFiltro.Image = ((System.Drawing.Image)(resources.GetObject("tsbFiltro.Image")));
-            this.tsbFiltro.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbFiltro.Name = "tsbFiltro";
-            this.tsbFiltro.Size = new System.Drawing.Size(23, 29);
-            this.tsbFiltro.Text = "toolStripButton1";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 32);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(61, 29);
-            this.toolStripLabel2.Text = "Acciones: ";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 32);
-            // 
-            // tsbNuevo
-            // 
-            this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
-            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(62, 29);
-            this.tsbNuevo.Text = "Nuevo";
-            this.tsbNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 32);
-            // 
-            // tsbModificar
-            // 
-            this.tsbModificar.Image = ((System.Drawing.Image)(resources.GetObject("tsbModificar.Image")));
-            this.tsbModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbModificar.Name = "tsbModificar";
-            this.tsbModificar.Size = new System.Drawing.Size(78, 29);
-            this.tsbModificar.Text = "Modificar";
-            this.tsbModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 32);
-            // 
-            // tstImprimir
-            // 
-            this.tstImprimir.Image = ((System.Drawing.Image)(resources.GetObject("tstImprimir.Image")));
-            this.tstImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tstImprimir.Name = "tstImprimir";
-            this.tstImprimir.Size = new System.Drawing.Size(73, 29);
-            this.tstImprimir.Text = "Imprimir";
-            this.tstImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.tstImprimir.ToolTipText = "Imprimir Listado de Clientes";
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 32);
-            // 
-            // panel9
-            // 
-            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel9.Controls.Add(this.dgv_EnseñarMotos);
-            this.panel9.Controls.Add(this.toolStrip1);
-            this.panel9.Location = new System.Drawing.Point(386, 78);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(490, 402);
-            this.panel9.TabIndex = 55;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(318, 228);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 22);
-            this.label1.TabIndex = 56;
-            this.label1.Text = "SI";
-            // 
             // AgregarMoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -503,15 +506,15 @@
             this.panelTopaggMoto.PerformLayout();
             this.panelCentroMotos.ResumeLayout(false);
             this.panelCentroMotos.PerformLayout();
+            this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_EnseñarMotos)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenMoto)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
